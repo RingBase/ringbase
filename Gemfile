@@ -4,7 +4,14 @@ ruby '2.1.0'
 
 gem 'rails', '4.0.0'
 
+# Deploy to AWS
+gem 'capistrano', '~>3.0.0'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+
 gem 'pg'
+
+gem 'unicorn'
 
 gem 'therubyracer', platforms: :ruby
 
