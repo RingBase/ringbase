@@ -38,6 +38,7 @@ publish
 db/*.sqlite3
 log/*.log
 tmp/
+tmp/*
 .sass-cache/
 dump.rdb
 
