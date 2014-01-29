@@ -4,11 +4,6 @@ ruby '2.1.0'
 
 gem 'rails', '4.0.0'
 
-# Deploy to AWS
-gem 'capistrano', '~>3.0.0'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-
 gem 'pg'
 
 gem 'unicorn'
@@ -17,12 +12,16 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-group :assets do
-  gem 'jquery-rails'
-  gem 'sass-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.3.0'
-  gem 'coffee-rails', '~> 4.0.0'
-end
+# Assets
+gem 'jquery-rails'
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+
+# Deploy to AWS
+gem 'capistrano', '~>3.0.0'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
 
 group :development, :test do
   gem 'sqlite3'
@@ -32,7 +31,6 @@ group :development, :test do
 
   gem 'better_errors'
   gem 'binding_of_caller'
-
 end
 
 group :test do
