@@ -17,6 +17,13 @@
         <li><%= link_to 'About', '#' %></li>
         <li><%= link_to 'Contact', '#' %></li>
       </ul>
+
+      <% if signed_in? %>
+        <p class="pull-right" style="color: white;">
+          Logged in as <%= current_user.full_name %> |
+          <%= link_to "Log Out", logout_path, style: 'color: white' %>
+        </p>
+      <% end %>
     </div>
 
   </div>
