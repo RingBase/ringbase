@@ -3,6 +3,7 @@
 #
 #= require bootstrap.min
 #= require underscore.min
+#= require angular
 
 window.conn    = new WebSocket('ws://localhost:9000')
 window.agentId = Math.floor(Math.random()*100) + 1
