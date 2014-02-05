@@ -4,10 +4,10 @@
 @ringbase = angular.module('ringbase', ['ngRoute'])
 
 # Sets up routing
-@ringbase.config(['$routeProvider', ($routeProvider) ->
+@ringbase.config(($routeProvider) ->
   $routeProvider.
     otherwise({
       templateUrl: "<%= asset_path('angular/templates/home.html') %>",
       controller: 'PhoneCtrl'
     }) 
-])
+)

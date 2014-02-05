@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+gem "ngmin-rails", "~> 0.4.0"
 
 # Deploy to AWS
 gem 'capistrano', '~>3.0.0'
