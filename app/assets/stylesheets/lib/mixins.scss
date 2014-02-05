@@ -1,0 +1,33 @@
+@mixin clearfix {
+  // http://nicolasgallagher.com/micro-clearfix-hack/
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after { clear: both; }
+}
+
+@mixin vendorize($property, $value) {
+  // Ex: @include vendorize(border-radius, 10px);
+  -webkit-#{$property}: $value;
+     -moz-#{$property}: $value;
+      -ms-#{$property}: $value;
+       -o-#{$property}: $value;
+          #{$property}: $value;
+}
+
+@mixin border-radius($rad: 2px) {
+  @include vendorize(border-radius, $rad);
+}
+
+@mixin border-box {
+  @include vendorize(box-sizing, border-box);
+}
+
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

@@ -1,1 +1,75 @@
 //= require bootstrap.min
+
+@import 'lib/variables';
+@import 'lib/mixins';
+
+
+body {
+  color: $gray-text;
+}
+
+
+// TODO: changes to theme components to be moved elsewhere
+
+.form-control {
+  @include border-radius;
+
+  //&:focus { box-shadow: none; }
+}
+
+
+.btn {
+  @include border-radius;
+  padding: 6px 12px;
+
+  &.btn-center {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+.alert { @include border-radius; }
+
+
+
+
+.login-banner {
+  background-color: $blue;
+  height: 225px;
+  padding-top: 50px;
+  text-align: center;
+
+  h2 { color: white; }
+
+  @include mobile {
+    height: 200px;
+    padding-top: 25px;
+  }
+}
+
+.login-form {
+  @include border-box;
+  @include border-radius;
+  @include clearfix;
+  background-color: white;
+  border: 1px solid $med-gray;
+  margin-top: -75px;
+  padding: 25px 30px 20px;
+
+  h3 {
+    font-size: 1.5em;
+    margin: 0 0 25px;
+    text-align: center;
+  }
+
+  .form-group { margin-bottom: 25px; }
+
+  .form-control { font-size: 1em; }
+
+  .btn {
+    padding: 6px 25px;
+
+    @include mobile { width: 100%; }
+  }
+}
