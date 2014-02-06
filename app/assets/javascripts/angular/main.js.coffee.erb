@@ -1,10 +1,10 @@
 #= require_self
 #= require_tree .
 
-@ringbase = angular.module('ringbase', ['ngRoute'])
+@RingBase = angular.module('ringbase', ['ngRoute'])
 
 # Sets up routing
-@ringbase.config(($routeProvider) ->
+@RingBase.config(($routeProvider) ->
   $routeProvider.
     otherwise({
       templateUrl: "<%= asset_path('angular/templates/home.html') %>",
