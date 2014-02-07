@@ -1,21 +1,32 @@
 <% provide(:title, 'Log In') %>
 
+<% provide :before_container do %>
+  <div class="login-banner">
+    <h2>RingBase</h2>
+  </div>
+<% end %>
+
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
     <%= form_tag sessions_path, class: "login-form" do %>
-      <%#= flash_error %>
+
+      <h3>Log in to RingBase</h3>
+
+      <%= flash_error %>
 
       <div class="form-group">
-        <%= label_tag :email %>
-        <%= email_field_tag :email, '', class: 'form-control', autofocus: true %>
+        <%= label_tag :email, '', class: 'sr-only' %>
+        <%= email_field_tag :email, '', class: 'form-control', autofocus: true,
+            placeholder: "Email" %>
       </div>
 
       <div class="form-group">
-        <%= label_tag :password %>
-        <%= password_field_tag :password, '', class: 'form-control' %>
+        <%= label_tag :password, '', class: 'sr-only' %>
+        <%= password_field_tag :password, '', class: 'form-control',
+            placeholder: "Password" %>
       </div>
 
-      <%= submit_tag "Log in", class: "btn btn-primary pull-right" %>
+      <%= submit_tag "Log in", class: "btn btn-primary btn-center" %>
     <% end %>
   </div>
 </div>
