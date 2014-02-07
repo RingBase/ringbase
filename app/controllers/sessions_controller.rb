@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    #return redirect_to expenses_path if signed_in?
+    redirect_to root_path if signed_in? # TODO: change URL
   end
 
   def create
