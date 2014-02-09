@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to root_path if signed_in? # TODO: change URL
+    redirect_to dashboard_path if signed_in?
   end
 
   def create
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       login_user(user)
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       flash[:error] = "Invalid email or password"
       render :new
@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)
-    return redirect_to root_url # TODO: change URL
+    return redirect_to root_url
   end
 
 end
+

@@ -1,9 +1,9 @@
 RingBase::Application.routes.draw do
 
-  get "users/new"
-  get "users/create"
   resources :users
+
   resources :organizations
+  get "/dashboard" => "organizations#dashboard", as: 'dashboard'
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'login'    => 'sessions#new',     as: 'login'
