@@ -1,5 +1,10 @@
 RingBase::Application.routes.draw do
 
+  get "users/new"
+  get "users/create"
+  resources :users
+  resources :organizations
+
   resources :sessions, only: [:new, :create, :destroy]
   get 'login'    => 'sessions#new',     as: 'login'
   post 'login'   => 'sessions#create'

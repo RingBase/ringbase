@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)
-    return redirect_to root_url
+    return redirect_to root_url # TODO: change URL
   end
 
 end

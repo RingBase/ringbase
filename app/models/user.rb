@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates :password, presence: { on: :create },
                        length: { minimum: 5 }, :if => :password_digest_changed?
 
+  belongs_to :organization
+
   before_create :generate_auth_token
 
   private
