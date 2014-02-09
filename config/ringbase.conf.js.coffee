@@ -1,6 +1,6 @@
 module.exports = (config) ->
   config.set
-    basePath: "../../../../../"
+    basePath: "../"
     frameworks: ["jasmine"]
     autoWatch: true
     browsers: ['Chrome']
@@ -17,10 +17,11 @@ module.exports = (config) ->
     ]
 
     plugins: [
-      'karma-junit-reporter'
-      'karma-chrome-launcher'
-      'karma-firefox-launcher'
-      'karma-jasmine'
+      "karma-junit-reporter"
+      "karma-chrome-launcher"
+      "karma-firefox-launcher"
+      "karma-jasmine"
+      "karma-coffee-preprocessor"
     ]
 
     junitReporter:

@@ -1,11 +1,9 @@
 module.exports = (config) ->
   config.set
-    basePath: "../../../../../"
+    basePath: "../"
     files: ["app/assets/javascripts/angular/test/e2e/*.js.coffee"]
     autoWatch: false
     browsers: ["Chrome"]
-    preprocessors:
-      "**/*.coffee": "coffee"
     frameworks: ["ng-scenario"]
     singleRun: true
     proxies:
