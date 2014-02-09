@@ -1,0 +1,23 @@
+// Modifications to Yeti theme elements
+
+.navbar { margin-bottom: 0; }
+
+.form-control {
+  @include border-radius;
+
+  //&:focus { box-shadow: none; }
+}
+
+
+.btn {
+  @include border-radius;
+  padding: 6px 12px;
+
+  &.btn-center {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+.alert { @include border-radius; }

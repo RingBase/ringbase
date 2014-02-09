@@ -3,18 +3,16 @@
 @import 'lib/variables';
 @import 'lib/mixins';
 
+@import 'theme';
+
 
 body {
-  background-color: #f6f6f6; // TODO: not sure if we'll want this for all pages?
+  background-color: #f6f6f6;
   color: $gray-text;
-}
 
-body > .container {
-  margin-top: 20px;
-}
-
-.navbar {
-  margin-bottom: 0;
+  & > .container {
+    margin-top: 20px;
+  }
 }
 
 
@@ -26,31 +24,6 @@ body > .container {
   border: 1px solid $med-gray;
   padding: 15px;
 }
-
-
-// TODO: changes to theme components to be moved elsewhere
-
-.form-control {
-  @include border-radius;
-
-  //&:focus { box-shadow: none; }
-}
-
-
-.btn {
-  @include border-radius;
-  padding: 6px 12px;
-
-  &.btn-center {
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-
-.alert { @include border-radius; }
-
-
 
 
 .login-banner {
