@@ -1,6 +1,6 @@
 module.exports = (config) ->
   config.set
-    basePath: "../"
+    basePath: "../../"
     frameworks: ["jasmine"]
     autoWatch: true
     browsers: ['Chrome']
@@ -11,9 +11,9 @@ module.exports = (config) ->
       "vendor/assets/javascripts/angular.min.js"
       "vendor/assets/javascripts/angular-*.min.js"
       "vendor/assets/javascripts/angular-mocks.min.js"
-      "app/assets/javascripts/angular/main.js.coffee.erb"
+      "app/assets/javascripts/angular/main.js.coffee"
       "app/assets/javascripts/angular/controllers/PhoneCtrl.js.coffee"
-      "app/assets/javascripts/angular/test/unit/controllerSpec.js.coffee"
+      "spec/javascripts/unit/controllerSpec.js.coffee"
     ]
 
     plugins: [
