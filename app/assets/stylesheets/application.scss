@@ -9,6 +9,24 @@ body {
   color: $gray-text;
 }
 
+body > .container {
+  margin-top: 20px;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+
+.whitebox {
+  @include border-box;
+  @include border-radius;
+  @include clearfix;
+  background-color: white;
+  border: 1px solid $med-gray;
+  padding: 15px;
+}
+
 
 // TODO: changes to theme components to be moved elsewhere
 
@@ -50,13 +68,8 @@ body {
 }
 
 .login-form {
-  @include border-box;
-  @include border-radius;
-  @include clearfix;
-  background-color: white;
-  border: 1px solid $med-gray;
   margin-top: -75px;
-  padding: 25px 30px 20px;
+  padding: 25px 30px 20px !important;
 
   h3 {
     font-size: 1.5em;
