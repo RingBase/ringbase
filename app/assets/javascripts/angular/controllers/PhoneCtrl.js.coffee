@@ -1,4 +1,4 @@
-@RingBase.controller 'PhoneCtrl', ($scope, Communicator) ->
+@RingBase.controller "PhoneCtrl", ($scope, Communicator) ->
   $scope.messages = []
   Communicator.connect()
 
