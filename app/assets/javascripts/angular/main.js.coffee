@@ -7,7 +7,7 @@
 @RingBase.config(($routeProvider) ->
   $routeProvider.
     otherwise({
-      template: "Angular template goes here",
+      templateUrl: 'templates/home.html',
       controller: 'PhoneCtrl'
     }) 
 )
