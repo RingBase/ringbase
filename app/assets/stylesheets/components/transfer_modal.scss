@@ -1,0 +1,51 @@
+#transferModal {
+  .modal-body   { padding: 5px 20px 20px; }
+  .modal-footer {
+    margin: 0;
+    padding: 10px 15px;
+  }
+
+  input[type='radio'] {
+    float: left;
+    margin: 25px 20px 0 0;
+  }
+
+  .agent-container {
+    @include clearfix;
+    border-bottom: 1px solid $light-gray;
+    padding: 15px 15px 15px 0;
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .agent {
+    @include clearfix;
+    float: left;
+  }
+
+  .avatar {
+    float: left;
+    margin-right:  15px;
+  }
+
+  .agent-info {
+    @include clearfix;
+    float: left;
+  }
+
+  .agent-name { margin-bottom: 5px; }
+
+  .status-indicator {
+    float: left;
+    margin: 5px 7px 0 0;
+  }
+
+  .agent-status {
+    color: darken($med-gray, 10);
+    font-size: 0.9em;
+    margin-bottom: 0;
+  }
+}
