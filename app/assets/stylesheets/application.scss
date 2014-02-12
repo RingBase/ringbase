@@ -2,23 +2,17 @@
 
 @import 'lib/variables';
 @import 'lib/mixins';
-
 @import 'theme';
-
+@import 'components/transfer_modal';
 
 body {
-  //background-color: #f6f6f6;
   background-color: white;
   color: $gray-text;
 
-  & > .container {
-    margin-top: 20px;
-  }
+  & > .container { margin-top: 20px; }
 }
 
-.top-buffer { 
-  margin-top:20px; 
-}
+.top-buffer { margin-top: 20px; }
 
 
 .whitebox {
@@ -28,6 +22,23 @@ body {
   background-color: white;
   border: 1px solid $med-gray;
   padding: 15px;
+}
+
+
+.avatar {
+  @include border-radius(50%);
+  display: inline-block;
+}
+
+
+.status-indicator {
+  display: inline-block;
+  @include border-radius(50%);
+  width: 10px;
+  height: 10px;
+
+  &.status-available { background-color: #3fa163; }
+  &.status-busy      { background-color: #da8702; }
 }
 
 
@@ -61,7 +72,6 @@ body {
 
   .btn {
     padding: 6px 25px;
-
     @include mobile { width: 100%; }
   }
 }
