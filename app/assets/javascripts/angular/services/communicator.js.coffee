@@ -7,7 +7,7 @@
     conn = new WebSocket('ws://localhost:9000')
 
     conn.onopen = ->
-      conn.send(JSON.stringify({ "agent_id": agentId, "action": "login" }))
+      conn.send(JSON.stringify({ "agent_id": agentId, "type": "login" }))
       service.callback "Opened connection"
       return
 
