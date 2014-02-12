@@ -16,6 +16,10 @@ body {
   }
 }
 
+.top-buffer { 
+  margin-top:20px; 
+}
+
 
 .whitebox {
   @include border-box;
