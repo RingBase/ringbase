@@ -5,9 +5,19 @@
 
 # Sets up routing
 @RingBase.config(($routeProvider) ->
-  $routeProvider.
-    otherwise({
-      templateUrl: "templates/home.html",
-      controller: "PhoneCtrl"
-    }) 
+  $routeProvider
+  .when("/",
+    templateUrl: "templates/home.html",
+    controller: "PhoneCtrl"
+  )
+  .when("/dashboard",
+    templateUrl: "templates/dashboard.html"
+  )
+  .when("/call",
+    templateUrl: "templates/call.html"
+  )
+  .otherwise({
+    templateUrl: "templates/home.html",
+    controller: "PhoneCtrl"
+  }) 
 )
