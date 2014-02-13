@@ -1,6 +1,7 @@
 RingBase::Application.routes.draw do
 
   resources :users
+  get '/dashboard', :to => redirect('/#/dashboard'), :as => :dashboard
 
   resources :organizations
 
