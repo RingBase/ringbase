@@ -4,7 +4,7 @@
       <!-- sidebar -->
       <div class="col-md-2 container">
         <div class="panel panel-default">
-          <div class="panel-heading"><a href="#/dashboard">Current User</a></div>
+          <div class="panel-heading"><a href="#/dashboard">{{current_user.full_name}}</a></div>
          <ul class="nav nav-sidebar">
           <li><a href="#/dashboard">Call Center</a></li>
           <li><a href="#/dashboard">Analytics</a></li>
@@ -59,7 +59,7 @@
             <td>(805)555-5555</td>
             <td>Incoming!</td>
             <td>
-              <a href="/call">
+              <a href="#/call">
                 <span class = "glyphicon glyphicon-earphone"></span>Answer
               </a>
             </td>
