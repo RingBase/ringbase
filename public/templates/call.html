@@ -18,7 +18,7 @@
 
  <div class = "col-md-4">
    Total:
-   <input type="text" class = "span2" placeholder = "Enter $ Amount"/> 
+   <input type="text" class = "span2" placeholder = "Enter $ Amount"/>
  </div>
 
  <div class = "col-md-1">
@@ -26,9 +26,9 @@
 </div>
 
 <div class = "col-md-4 btn-group-vertical">
-  <button type = "button" class="btn btn-default btn-lg">
-   Transfer
- </button>
+  <button class="btn btn-primary" data-toggle="modal" data-target="#transferModal">
+    Open call transfer modal
+  </button>
  <button type="button" class="btn btn-default btn-lg">
    Done
  </button>
@@ -36,4 +36,51 @@
 </div>
 </div>
 
+</div>
+
+<div class="modal fade" id="transferModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Choose Transfer</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="agent-container">
+          <input type="radio" />
+          <div class="agent">
+            <img class="avatar" src="http://placehold.it/60x60"/>
+            <div class="agent-info">
+              <p class="agent-name">Jane Doe</p>
+              <p class="agent-status">
+                <span class="status-indicator status-busy"></span> Busy
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-container">
+          <input type="radio" />
+          <div class="agent">
+            <img class="avatar" src="http://placehold.it/60x60"/>
+            <div class="agent-info">
+              <p class="agent-name">John Smith</p>
+              <p class="agent-status">
+                <span class="status-indicator status-available"></span> Available
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .modal-body -->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Transfer</button>
+      </div>
+
+    </div>
+  </div>
 </div>
