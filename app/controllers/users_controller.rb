@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  respond_to :json
+
   def new
     @user = User.new
   end
@@ -13,6 +15,10 @@ class UsersController < ApplicationController
       flash[:error] = "Something went wrong!"
       render :new
     end
+  end
+
+  def fetch_user
+    respond_with(current_user, :only => [:full_name, :email, :phone_number]).to_json.html_safe
   end
 
   private
