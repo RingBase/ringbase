@@ -11,11 +11,29 @@ body {
 
   & > .container { margin-top: 20px; }
 }
-
+input.span3, textarea.span3, .uneditable-input.span3 {
+  width: 759px;
+  height: 106px;
+  font-size:9px;
+  line-height:13px;
+}
 .top-buffer { margin-top: 20px; }
 
 .callWith {
   text-align: center;
+}
+.notesInput{
+    margin-left:64px;
+
+}
+.send{
+  margin-top: 12px;
+  margin-left:785px;
+}
+
+.notes{
+  padding-bottom:338px;
+  margin-left:81px;
 }
 
 .timer {
