@@ -14,6 +14,14 @@ body {
 
 .top-buffer { margin-top: 20px; }
 
+.callWith {
+  text-align: center;
+}
+
+.timer {
+  text-align: center;
+  margin-top: 6px;
+}
 
 .whitebox {
   @include border-box;
