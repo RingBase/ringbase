@@ -21,6 +21,9 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
+  rescue ActiveRecord::RecordNotFound
+    cookies.delete(:auth_token)
+    redirect_to login_path
   end
 
   def signed_in?
