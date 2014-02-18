@@ -1,5 +1,25 @@
-<h1>RingBase</h1>
-<p class="lead">
-  RingBase lets you set up your call center in minutes.
-  <div ng-view></div>
-</p>
+<% if signed_in? %>
+  <p class="lead">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- sidebar -->
+        <div class="col-md-2 container">
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= current_user.full_name %></div>
+            <ul class="nav nav-sidebar">
+              <li><a href="#/">Home</a></li>
+              <li><a href="#/dashboard">Dashboard</a></li>
+              <li><a href="#/call">Call View</a></li>
+          </ul>
+         </div>
+        </div>
+        <!-- page selected in sidebar -->
+        <div class="col-md-10 container">
+          <div ng-view></div>
+        </div>
+      </div>
+    </div>
+  </p>
+<% else %>
+  <h1>RingBase lets you set up your call center in minutes.</h1>
+<% end %>
