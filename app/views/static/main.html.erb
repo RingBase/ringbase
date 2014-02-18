@@ -1,25 +1,26 @@
+
+<!-- TODO: this is only a landing page, nothing else should be here -->
+
+
 <% if signed_in? %>
-	<p class="lead">
-	  <div class="container-fluid">
-	    <div class="row">
-	      <!-- sidebar -->
-	      <div class="col-md-2 container">
-	        <div class="panel panel-default">
-	          <div class="panel-heading"><%= current_user.full_name %></div>
-	          <ul class="nav nav-sidebar">
-	          	<li><a href="#/">Home</a></li>
-	            <li><a href="#/dashboard">Dashboard</a></li>
-	            <li><a href="#/call">Call View</a></li>
-	        </ul>
-	       </div>
-	      </div>
-	      <!-- page selected in sidebar -->
-	      <div class="col-md-10 container">
-	  		<div ng-view></div>
-	      </div>
-	    </div>
-	  </div>
-	</p>
+  <div class="row">
+
+      <div class="col-md-2 sidebar-container">
+        <div class="panel panel-default">
+          <div class="panel-heading"><%= current_user.full_name %></div>
+          <ul class="nav nav-sidebar">
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/dashboard">Dashboard</a></li>
+            <li><a href="#/call">Call View</a></li>
+          </ul>
+        </div><!-- .panel-default -->
+      </div><!-- .sidebar-container -->
+
+      <div class="col-md-10 main-content">
+        <div ng-view></div>
+      </div>
+
+    </div><!--.row -->
 <% else %>
 	<h1>RingBase lets you set up your call center in minutes.</h1>
 <% end %>
