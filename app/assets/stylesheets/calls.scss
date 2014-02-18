@@ -1,0 +1,68 @@
+.call-info-container {
+  @include clearfix;
+  border-bottom: 1px solid $med-gray;
+}
+
+.call-info {
+  border-right: 1px solid $med-gray;
+  min-height: 3em;
+  text-align: center;
+
+  &:last-child { border-right: 0; }
+}
+
+.call-with { padding-top: 12px; } // TODO
+
+.call-timer {
+  padding-top: 12px; // TODO
+
+  .call-duration {}
+}
+
+.notes-header-container {
+  margin-bottom: 10px;
+  border-bottom: 1px solid $med-gray;
+
+  h3 { margin: 10px 0 10px 10px; }
+}
+
+.call-notes-container {
+  padding-bottom: 15px;
+
+  // TODO: probably will want to change this for Google-docs style display
+  .msg {
+    font-size: 0.9em;
+    margin-bottom: 3px;
+
+    .msg-from, .msg-time, .msg-body { display: inline-block; }
+
+    .msg-from {
+      color: lighten($gray-text, 12);
+      font-weight: bold;
+      margin-right: 2px;
+    }
+
+    .msg-time {
+      color: darken($med-gray, 5);
+      margin-right: 3px;
+    }
+
+    .msg-body {}
+  }
+}
+
+.notes-input-container {
+  border-top: 1px solid $med-gray;
+  background-color: lighten($light-gray, 6);
+  padding: 15px 15px 10px;
+}
+
+.notes-input {
+  @include border-box;
+  @include clearfix;
+
+  .btn-send {
+    float: right;
+    margin-top: 15px;
+  }
+}

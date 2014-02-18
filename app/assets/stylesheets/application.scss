@@ -2,8 +2,9 @@
 
 @import 'lib/variables';
 @import 'lib/mixins';
-@import 'theme';
+@import 'lib/theme';
 @import 'components/transfer_modal';
+@import 'calls';
 
 body {
   background-color: white;
@@ -11,35 +12,11 @@ body {
 
   & > .container { margin-top: 20px; }
 }
-input.span3, textarea.span3, .uneditable-input.span3 {
-  width: 759px;
-  height: 106px;
-  font-size:9px;
-  line-height:13px;
-}
+
+.main-content { border: 1px solid $med-gray; }
+
 .top-buffer { margin-top: 20px; }
 
-.callWith {
-  text-align: center;
-}
-.notesInput{
-    margin-left:64px;
-
-}
-.send{
-  margin-top: 12px;
-  margin-left:785px;
-}
-
-.notes{
-  padding-bottom:338px;
-  margin-left:81px;
-}
-
-.timer {
-  text-align: center;
-  margin-top: 6px;
-}
 
 .whitebox {
   @include border-box;

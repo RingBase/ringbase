@@ -1,47 +1,74 @@
 <div class="row">
-  <div class="col-md-3 callWith">
-    On call with:
-    <div>(408) 348-9187</div>
-  </div>
-  <div class="col-md-1 timer">
-    7:43
-  </div>
-  <div class="col-md-3">
-    Total:
-    <input type="text" class="span2" placeholder="Enter $ Amount"/>
-  </div>
-  <button class="col-md-3 btn btn-primary action" data-toggle="modal" data-target="#transferModal">
-    Open call transfer modal
-  </button>
+  <div class="call-info-container">
+
+    <div class="col-md-3 call-info call-with">
+      On call with:
+      <span class="call-number">(408) 348-9187</span>
+    </div>
+
+    <div class="col-md-3 call-info call-timer">
+      <span class="call-duration">7:43</span>
+    </div>
+
+    <div class="col-md-3 call-info">
+      Total:
+      <input type="text" class="span2" placeholder="Enter $ Amount"/>
+    </div>
+
+    <div class="col-md-3 call-info" style="padding-top: 5px;"><!-- TODO -->
+      <button class="btn btn-primary" data-toggle="modal" data-target="#transferModal">
+        Open call transfer modal
+      </button>
+    </div>
+
+  </div><!-- .call-info-container -->
 </div>
 
-<div class ="row">
- <div class="col-md-3 callWith">
-  <h1> Notes: </h1>
+
+<div class="row notes-header-container">
+  <h3>Notes:</h3>
 </div>
 
-<div class = "row">
-  <div class="col-md-9 panel panel-default notes">
-    <div>Jane Doe(10:10:05): Client used Kayak.com</div>
-    <div>Jane Doe(10:10:10): Referral from Carribean Cruise Sales</div>
-    <div>Jane Doe(10:10:05): Transferring to John Smith, Sales Rep</div>
-    <div>John Smith(10:33:14): Client requested Discount</div>
-    <div>John Smith(10:10:47): Offered client discount code: CRUISE10</div>
 
-  
-  </div>
-</div>
 <div class="row">
-  <div class="col-md-9 notesInput">
-    <input type="text" class="span3">
+  <div class="col-md-12">
+    <div class="call-notes-container">
+      <!-- TODO: probably will want to change this for Google-docs style display -->
+      <p class="msg">
+        <span class="msg-from">Jane Doe</span>
+        <span class="msg-time">(10:10:05):</span>
+        <span class="msg-body">Client used Kayak.com</span
+      </p>
+
+      <p class="msg">
+        <span class="msg-from">Jane Doe</span>
+        <span class="msg-time">(10:11:37):</span>
+        <span class="msg-body">Transferring to John Smith, Sales Rep</span
+      </p>
+    </div>
   </div>
 </div>
-<div class="row">
 
-   <button class="btn btn-primary btn-sm send">
-    Send
-  </button>
+
+<div class="row">
+  <div class="col-md-12 notes-input-container">
+
+    <div class="notes-input">
+      <textarea class="form-control"></textarea>
+      <button class="btn btn-primary btn-sm btn-send">Send</button>
+    </div><!-- .notes-input -->
+
+  </div>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -56,7 +83,6 @@
       </div>
 
       <div class="modal-body">
-
         <div class="agent-container">
           <input type="radio" />
           <div class="agent">
@@ -68,7 +94,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </div><!-- .agent-container -->
 
         <div class="agent-container">
           <input type="radio" />
@@ -81,15 +107,12 @@
               </p>
             </div>
           </div>
-        </div>
-
+        </div><!-- .agent-container -->
       </div><!-- .modal-body -->
 
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Transfer</button>
       </div>
 
-
-    </div>
-
-
+    </div><!-- .modal-content -->
+  </div>
