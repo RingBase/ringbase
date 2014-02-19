@@ -1,0 +1,54 @@
+<h1 class="row page-header top-buffer">Call Center</h1>
+<ul class="row nav nav-tabs">
+    <li class="active"><a href="#/dashboard">Incoming</a></li>
+    <li><a href="#/dashboard">In Progress</a></li>
+    <li><a href="#/dashboard">Completed</a></li>
+  </ul>
+  <!-- filters -->
+  <div class="row top-buffer">
+    <div class="col-md-2">Filter By:</div>
+    <div class="col-md-3 btn-group">
+      <button type="button" class="btn">Location</button>
+      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#/dashboard">Santa Barbara</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3 btn-group">
+      <button type="button" class="btn">Agent Name</button>
+      <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#/dashboard">Nivedh Mohinder</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- table of calls -->
+  <div class="row top-buffer">
+    <table class="col-md-12 table table-striped">
+      <tr class="table-header">
+        <th>Name</th>
+        <th>Location</th>
+        <th>Phone Number</th>
+        <th>Call Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>Jim Beam</td>
+        <td>Santa Barbara</td>
+        <td>(805)555-5555</td>
+        <td>Incoming!</td>
+        <td>
+          <a href="#/call">
+            <span class = "glyphicon glyphicon-earphone"></span>Answer
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

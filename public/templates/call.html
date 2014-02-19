@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-3 callWith">
+    On call with:
+    <div>(408) 348-9187</div>
+  </div>
+  <div class="col-md-1 timer">
+    7:43
+  </div>
+  <div class="col-md-3">
+    Total:
+    <input type="text" class="span2" placeholder="Enter $ Amount"/>
+  </div>
+  <button class="col-md-3 btn btn-primary action" data-toggle="modal" data-target="#transferModal">
+    Open call transfer modal
+  </button>
+</div>
+
+<div class ="row">
+ <div class="col-md-3 callWith">
+  <h1> Notes: </h1>
+</div>
+
+<div class = "row">
+  <div class="col-md-9 panel panel-default notes">
+    <div>Jane Doe(10:10:05): Client used Kayak.com</div>
+    <div>Jane Doe(10:10:10): Referral from Carribean Cruise Sales</div>
+    <div>Jane Doe(10:10:05): Transferring to John Smith, Sales Rep</div>
+    <div>John Smith(10:33:14): Client requested Discount</div>
+    <div>John Smith(10:10:47): Offered client discount code: CRUISE10</div>
+
+  
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-9 notesInput">
+    <input type="text" class="span3">
+  </div>
+</div>
+<div class="row">
+
+   <button class="btn btn-primary btn-sm send">
+    Send
+  </button>
+</div>
+
+
+
+<!-- modal -->
+<div class="modal fade" id="transferModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Choose Transfer</h4>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="agent-container">
+          <input type="radio" />
+          <div class="agent">
+            <img class="avatar" src="http://placehold.it/60x60"/>
+            <div class="agent-info">
+              <p class="agent-name">Jane Doe</p>
+              <p class="agent-status">
+                <span class="status-indicator status-busy"></span> Busy
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="agent-container">
+          <input type="radio" />
+          <div class="agent">
+            <img class="avatar" src="http://placehold.it/60x60"/>
+            <div class="agent-info">
+              <p class="agent-name">John Smith</p>
+              <p class="agent-status">
+                <span class="status-indicator status-available"></span> Available
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .modal-body -->
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Transfer</button>
+      </div>
+
+
+    </div>
+
+
