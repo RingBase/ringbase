@@ -16,8 +16,18 @@
   <%= yield(:before_container) %>
 
   <div class="container">
-    <%= yield %>
-  </div>
+    <% if signed_in? %>
+      <div class="row">
+        <%= render 'shared/sidebar' %>
+
+        <div class="col-md-10 main-content">
+          <div ng-view></div>
+        </div>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
+  </div><!-- .container -->
 
   <%= javascript_include_tag :application %>
 </body>
