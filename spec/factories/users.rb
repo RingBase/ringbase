@@ -4,6 +4,6 @@ FactoryGirl.define do
     email     { Faker::Internet.email }
     password 'password'
     password_confirmation 'password'
-    organization_id 1
+    organization { FactoryGirl.create(:organization) }
   end
 end
