@@ -16,7 +16,7 @@
   )
   .when("/call",
     templateUrl: "templates/call.html"
-    controller: "PhoneCtrl"
+    controller: "CallCtrl"
   )
   .otherwise({
     templateUrl: "templates/home.html",
