@@ -19,18 +19,21 @@
       </div>
     </div><!-- .agent-container -->
 
-    <div class="agent-container">
-      <input type="radio" />
-      <div class="agent">
-        <img class="avatar" src="http://placehold.it/60x60"/>
-        <div class="agent-info">
-          <p class="agent-name">John Smith</p>
-          <p class="agent-status">
-            <span class="status-indicator status-available"></span> Available
-          </p>
+    <div ng-repeat="agent in all_agents">
+      <div class="agent-container">
+        <input type="radio" />
+        <div class="agent">
+          <img class="avatar" src="http://placehold.it/60x60"/>
+          <div class="agent-info">
+            <p class="agent-name">{{agent.full_name}}</p> {{agent.email}}
+            <p class="agent-status">
+              <span class="status-indicator status-available"></span> Available
+            </p>
+          </div>
         </div>
-      </div>
-    </div><!-- .agent-container -->
+      </div><!-- .agent-container -->
+    </div>
+    
   </div><!-- .modal-body -->
 
   <div class="modal-footer">

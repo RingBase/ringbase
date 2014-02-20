@@ -1,4 +1,4 @@
-@RingBase.controller "PhoneCtrl", ($scope, Communicator, User) ->
+@RingBase.controller "PhoneCtrl", ($scope, Communicator, Agent) ->
   $scope.messages = []
   Communicator.connect()
 
@@ -10,5 +10,5 @@
     Communicator.send $scope.text
     $scope.text = ""
 
-  User.getUser().then (data) ->
-    $scope.current_user = data
+  Agent.getCurrentAgent().then (data) ->
+    $scope.current_agent = data

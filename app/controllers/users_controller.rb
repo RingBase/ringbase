@@ -20,8 +20,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def fetch_user
-    respond_with(current_user, :only => [:full_name, :email, :phone_number]).to_json.html_safe
+  # TODO: Fix this!
+  def current_agent
+    respond_with(current_user, :only => [:full_name, :email, :phone_number]).to_json
+  end
+
+  def all_agents
+    respond_with(User.all, :only => [:full_name, :email, :phone_number]).to_json
   end
 
   private
