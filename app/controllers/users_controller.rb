@@ -7,10 +7,13 @@ class UsersController < ApplicationController
 
   def create
     org  = Organization.create!(name: organization_name)
+    org.campaigns.create!(title: organization_name,
+                          pilot_number: pilot_number) # TODO: title ?
     user = org.users.build(user_params)
+
     if user.save
       login_user(user)
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       flash[:error] = "Something went wrong!"
       render :new
@@ -29,5 +32,9 @@ class UsersController < ApplicationController
 
   def organization_name
     params.require(:organization_name)
+  end
+
+  def pilot_number
+    params.require(:pilot_number)
   end
 end
