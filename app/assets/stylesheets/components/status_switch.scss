@@ -1,0 +1,83 @@
+// Modified from http://proto.io/freebies/onoff/
+
+
+$switch-component-height: 20px;
+$switch-side-padding: 8px; // Left/right text padding
+$switch-time: 0.3s;        // Slide duration
+
+.status-switch {
+  position: relative;
+  width: 80px;
+
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+}
+
+.status-switch-checkbox { display: none; }
+
+.status-switch-label {
+  @include border-radius(3px);
+  border: 2px solid lighten(#404040, 3);
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+}
+
+.status-switch-inner {
+  margin-left: -100%;
+  width: 200%;
+
+  -webkit-transition: margin $switch-time ease-in 0s;
+     -moz-transition: margin $switch-time ease-in 0s;
+       -o-transition: margin $switch-time ease-in 0s;
+          transition: margin $switch-time ease-in 0s;
+
+
+  &:before, &:after {
+    @include border-box;
+    color: white;
+    float: left;
+    font-size: 0.8em;
+    font-weight: bold;
+    height: $switch-component-height;
+    line-height: $switch-component-height;
+    padding: 0;
+    width: 50%;
+  }
+
+  &:before {
+    background-color: $green;
+    content: "OPEN";
+    padding-left: $switch-side-padding;
+  }
+
+  &:after {
+    background-color: $yellow;
+    content: "BUSY";
+    padding-right: $switch-side-padding;
+    text-align: right;
+  }
+}
+
+$switch-button-width: 25px;
+
+.status-switch-switch {
+  @include border-radius(4px);
+  background-color: white;
+  border: 2px solid lighten(#404040, 5);
+  margin: 0px;
+  position: absolute; top: 0; bottom: 0; right: 64px;
+  width: $switch-button-width;
+
+  -webkit-transition: all $switch-time ease-in 0s;
+     -moz-transition: all $switch-time ease-in 0s;
+       -o-transition: all $switch-time ease-in 0s;
+          transition: all $switch-time ease-in 0s;
+}
+
+.status-switch-checkbox:checked + .status-switch-label {
+  .status-switch-inner  { margin-left: 0; }
+
+  .status-switch-switch { right: 0px; }
+}

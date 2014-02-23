@@ -18,6 +18,8 @@
   <div class="container">
     <% if signed_in? %>
       <div class="row">
+
+        <%= render 'shared/notification_bar' %>
         <%= render 'shared/sidebar' %>
 
         <div class="col-md-10 main-content">
