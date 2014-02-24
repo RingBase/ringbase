@@ -32,5 +32,9 @@
   </div><!-- .container -->
 
   <%= javascript_include_tag :application %>
+
+  <script>
+    window.current_user_id = <%= current_user.id %>
+  </script>
 </body>
 </html>

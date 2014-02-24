@@ -20,13 +20,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # TODO: Fix this!
-  def current_agent
-    respond_with(current_user, :only => [:full_name, :email, :phone_number]).to_json
+  def show
+    respond_with current_user.to_json(:only => [:full_name, :email, :phone_number])
   end
 
-  def all_agents
-    respond_with(User.all, :only => [:full_name, :email, :phone_number]).to_json
+  def index
+    respond_with current_user.peers
   end
 
   private

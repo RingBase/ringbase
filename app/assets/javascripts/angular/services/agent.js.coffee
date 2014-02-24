@@ -1,7 +1,7 @@
 @RingBase.factory 'Agent', ($http, $q) ->
-  getCurrentAgent: ->
+  getCurrentAgent: (id) ->
     deferred = $q.defer()
-    $http.get('/current_agent.json')
+    $http.get('/users/' + id + '.json')
       .success (data, status) ->
         deferred.resolve(data)
       .error (data, status) ->
@@ -11,7 +11,7 @@
 
   getAllAgents: ->
     deferred = $q.defer()
-    $http.get('/all_agents.json')
+    $http.get('/users.json')
       .success (data, status) ->
         deferred.resolve(data)
       .error (data, status) ->

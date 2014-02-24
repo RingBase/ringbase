@@ -2,9 +2,7 @@ RingBase::Application.routes.draw do
 
   resources :users
   get '/dashboard', :to => redirect('/#/dashboard'), :as => :dashboard
-  get '/current_agent', :to => 'users#current_agent'
-  get '/all_agents', :to => 'users#all_agents'
-
+  
   resources :organizations
 
   resources :sessions, only: [:new, :create, :destroy]
