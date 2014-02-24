@@ -4,20 +4,48 @@
 }
 
 .call-info {
-  border-right: 1px solid $med-gray;
-  min-height: 3em;
+  border-left: 1px solid $med-gray;
+  color: lighten($gray-text, 5);
+  font-size: 2em;
+  min-height: 2.7em;
+  padding-top: 10px;
   text-align: center;
 
-  &:last-child { border-right: 0; }
+  &:first-child { border-left: 0; }
+
+  .call-info-label {
+    color: #a1a1a1;
+    display: block;
+    font-size: 14px;
+    text-align: left;
+  }
 }
 
-.call-with { padding-top: 12px; } // TODO
+.call-number { font-size: 0.8em; }
 
-.call-timer {
-  padding-top: 12px; // TODO
+.call-duration {}
 
-  .call-duration {}
+.call-payout-container {
+  .call-payout {
+    border: 0;
+    border-bottom: 1px dashed darken($med-gray, 10);
+    color: lighten($gray-text, 7);
+    font-size: 0.9em;
+    padding: 0;
+    width: 50%;
+
+    &:focus {
+      outline: 0;
+      border-bottom-color: $blue;
+    }
+  }
 }
+
+.transfer-btn-container {
+  padding-top: 17px; // TODO: :(
+}
+
+
 
 .notes-header-container {
   margin-bottom: 10px;
@@ -27,7 +55,7 @@
 }
 
 .call-notes-container {
-  padding-bottom: 15px;
+  padding-bottom: 35px;
 
   // TODO: probably will want to change this for Google-docs style display
   .msg {

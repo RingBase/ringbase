@@ -1,23 +1,27 @@
 <div class="row">
   <div class="call-info-container">
 
-    <div class="col-md-3 call-info call-with">
-      On call with:
+    <div class="col-md-3 call-info">
+      <span class="call-info-label">On call with:</span>
       <span class="call-number">(408) 348-9187</span>
     </div>
 
-    <div class="col-md-3 call-info call-timer">
+    <div class="col-md-3 call-info">
+      <span class="call-info-label">Duration:</span>
       <span class="call-duration">7:43</span>
     </div>
 
     <div class="col-md-3 call-info">
-      Total:
-      <input type="text" class="span2" placeholder="Enter $ Amount"/>
+      <span class="call-info-label">Total:</span>
+      <span class="call-payout-container">
+        $
+        <input type="text" class="call-payout" value="72.50" />
+      </span>
     </div>
 
-    <div class="col-md-3 call-info" style="padding-top: 5px;"><!-- TODO -->
+    <div class="col-md-3 call-info transfer-btn-container">
       <button class="btn btn-primary" data-toggle="modal" data-target="#transferModal">
-        Open call transfer modal
+        Transfer Call
       </button>
     </div>
 
