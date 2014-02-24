@@ -53,21 +53,22 @@
         <th>Name</th>
         <th>Location</th>
         <th>Phone Number</th>
-        <th>Call Status</th>
         <th>Actions</th>
       </tr>
 
-      <tr>
-        <td>Jim Beam</td>
-        <td>Santa Barbara</td>
-        <td>(805)555-5555</td>
-        <td>Incoming!</td>
+      <tr ng-repeat="call in calls">
+        <td>{{ call.name }}</td>
+        <td>{{ call.city }}</td>
+        <td>{{ call.number }}</td>
+
         <td>
-          <a href="#/call">
+          <!-- TODO -->
+          <a href="#/call/{{ call.id }}">
             <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span>
             Answer
           </a>
         </td>
+
       </tr>
     </table>
 
