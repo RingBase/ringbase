@@ -24,3 +24,7 @@
 
 
 .modal-content { @include border-radius; }
+
+.btn-group .btn {
+  background-color: lighten($med-gray, 7) !important;
+}
