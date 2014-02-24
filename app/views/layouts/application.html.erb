@@ -34,7 +34,7 @@
   <%= javascript_include_tag :application %>
 
   <script>
-    window.current_user_id = <%= current_user.id %>
+    window.current_user = <%= current_user.to_json(:only => [:full_name, :email, :phone_number]).html_safe %>
   </script>
 </body>
 </html>

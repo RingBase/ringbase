@@ -20,10 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    respond_with current_user.to_json(:only => [:full_name, :email, :phone_number])
-  end
-
   def index
     respond_with current_user.peers
   end
