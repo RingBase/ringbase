@@ -1,7 +1,7 @@
-@RingBase.factory 'User', ($http, $q) ->
-  getUser: ->
+@RingBase.factory 'Agent', ($http, $q) ->
+  getAllAgents: ->
     deferred = $q.defer()
-    $http.get('/fetch_user.json')
+    $http.get('/users.json')
       .success (data, status) ->
         deferred.resolve(data)
       .error (data, status) ->

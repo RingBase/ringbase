@@ -2,8 +2,7 @@ RingBase::Application.routes.draw do
 
   resources :users
   get '/dashboard', :to => redirect('/#/dashboard'), :as => :dashboard
-  get '/fetch_user', :to => 'users#fetch_user'
-
+  
   resources :organizations
 
   resources :sessions, only: [:new, :create, :destroy]

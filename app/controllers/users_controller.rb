@@ -20,8 +20,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def fetch_user
-    respond_with(current_user, :only => [:full_name, :email, :phone_number]).to_json.html_safe
+  def index
+    respond_with current_user.peers
   end
 
   private
