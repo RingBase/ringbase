@@ -1,9 +1,13 @@
-@RingBase.controller "CallCtrl", ($scope, $modal, Agent) ->
+@RingBase.controller "CallCtrl", ($scope, $modal) ->
   $scope.open = ->
     modalInstance = $modal.open(
       templateUrl: 'templates/modal.html',
-      controller: 'CallCtrl'
+      controller: 'ModalInstanceCtrl'
     )
+
+@RingBase.controller 'ModalInstanceCtrl',($scope, $modalInstance, Agent) ->
+  $scope.cancel = ->
+    $modalInstance.dismiss "cancel"
 
   Agent.getAllAgents().then (data) ->
     $scope.all_agents = data
