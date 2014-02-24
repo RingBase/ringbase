@@ -6,17 +6,21 @@
 
         <div class="col-xs-7 col-xs-offset-1 agent-info-container">
           <%= avatar_for(current_user) %>
-          <span class="agent-name"><%= current_user.full_name %></span>
 
-          <div class="status-switch-container">
-            <div class="status-switch">
-              <input type="checkbox" class="status-switch-checkbox" id="agent-status-switch" checked>
-              <label class="status-switch-label" for="agent-status-switch">
-                <div class="status-switch-inner"></div>
-                <div class="status-switch-switch"></div>
-              </label>
+          <div style="overflow: auto;">
+            <span class="agent-name"><%= current_user.full_name %></span>
+
+            <div class="status-switch-container">
+              <div class="status-switch">
+                <input type="checkbox" class="status-switch-checkbox" id="agent-status-switch" checked>
+                <label class="status-switch-label" for="agent-status-switch">
+                  <div class="status-switch-inner"></div>
+                  <div class="status-switch-switch"></div>
+                </label>
+              </div>
             </div>
           </div>
+
         </div><!-- .agent-info-container -->
 
         <div class="col-xs-4 incoming-call-container">
