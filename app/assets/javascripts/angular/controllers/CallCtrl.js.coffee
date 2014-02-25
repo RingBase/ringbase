@@ -6,7 +6,7 @@
       controller: 'ModalInstanceCtrl'
     }
 
-  $scope.$watch 'total', (total) ->
+  $scope.$watch 'total', ->
     console.log($scope.total)
 
 @RingBase.controller 'ModalInstanceCtrl', ($scope, $modalInstance, Agent) ->

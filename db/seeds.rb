@@ -13,7 +13,7 @@ org.campaigns.create!(title: org.name, pilot_number: "555-123-4567")
  { full_name: 'Nivedh Mohinder', email: 'nivedh@gmail.com' },
  { full_name: 'Alex Timber', email: 'alex@gmail.com' },
  { full_name: 'Pete Cruise', email: 'pete@gmail.com' },
- { full_name: 'Servin Shake', email: 'servin@gmail.com' }
+ { full_name: 'Servin Shakes', email: 'servin@gmail.com' }
 ].each do |user_attrs|
   org.users.create!(user_attrs.merge(password: "password", password_confirmation: "password"))
 end
