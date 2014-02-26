@@ -49,6 +49,13 @@
         <span class="msg-time">(10:11:37):</span>
         <span class="msg-body">Transferring to John Smith, Sales Rep</span
       </p>
+      <div ng-repeat="note in notes_list track by $index">
+        <p class="msg">
+          <span class="msg-from">{{current_user}}</span>
+          <span class="msg-time">({{current_time}}):</span>
+          <span class="msg-body">{{note}}</span
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -58,8 +65,8 @@
   <div class="col-md-12 notes-input-container">
 
     <div class="notes-input">
-      <textarea class="form-control"></textarea>
-      <button class="btn btn-primary btn-sm btn-send">Send</button>
+      <textarea class="form-control" ng-model="note"></textarea>
+      <button class="btn btn-primary btn-sm btn-send" ng-click="send()">Send</button>
     </div><!-- .notes-input -->
 
   </div>
