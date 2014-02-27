@@ -89,6 +89,8 @@
   @include border-box;
   @include clearfix;
 
+  textarea { font-size: 1em; }
+
   .btn-send {
     float: right;
     margin-top: 15px;

@@ -12,7 +12,7 @@
       conn.send(JSON.stringify({ "agent_id": agent_id, "type": "login" }))
 
     conn.onmessage = (json) ->
-      console.log("GOT: " + json.data)
+      #console.log("GOT FROM SERVER: " + json.data)
       data = JSON.parse(json.data)
       service.callback(data)
 

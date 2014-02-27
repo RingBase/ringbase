@@ -32,6 +32,11 @@
   $scope.$watch 'total', ->
     console.log($scope.total)
 
+  # Retrieve the current time as a string
+  # Seconds are padding with leading zeroes if necessary
   current_time = ->
-    date = new Date()
-    date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+    date    = new Date()
+    hours   = date.getHours()
+    minutes = date.getMinutes()
+    seconds = ('0' + date.getSeconds()).substr(-2)
+    "#{hours}:#{minutes}:#{seconds}"
