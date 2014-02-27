@@ -20,10 +20,3 @@
   current_time = ->
     date = new Date()
     date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
-
-@RingBase.controller 'ModalInstanceCtrl', ($scope, $modalInstance, Agent) ->
-  $scope.cancel = ->
-    $modalInstance.dismiss "cancel"
-
-  Agent.getAllAgents().then (data) ->
-    $scope.all_agents = data
