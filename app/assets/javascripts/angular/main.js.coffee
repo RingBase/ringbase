@@ -14,7 +14,7 @@
     templateUrl: "templates/dashboard.html"
     controller: "PhoneCtrl"
   )
-  .when("/call",
+  .when("/call/:callId",
     templateUrl: "templates/call.html"
     controller: "CallCtrl"
   )
