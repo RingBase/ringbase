@@ -7,7 +7,7 @@
 @RingBase.config(($routeProvider) ->
   $routeProvider
   .when("/",
-    templateUrl: "templates/home.html",
+    templateUrl: "templates/dashboard.html",
     controller: "PhoneCtrl"
   )
   .when("/dashboard",
@@ -21,5 +21,5 @@
   .otherwise({
     templateUrl: "templates/home.html",
     controller: "PhoneCtrl"
-  }) 
+  })
 )
