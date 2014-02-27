@@ -18,7 +18,7 @@
 
   current_time = ->
     date = new Date()
-    current_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
+    new_time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
 
 @RingBase.controller 'ModalInstanceCtrl', ($scope, $modalInstance, Agent) ->
   $scope.cancel = ->
