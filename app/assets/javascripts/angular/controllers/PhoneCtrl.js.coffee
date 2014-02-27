@@ -1,5 +1,6 @@
 @RingBase.controller "PhoneCtrl", ($scope, Communicator, Agent) ->
   $scope.current_agent = window.current_user
+  $scope.current_organization = window.current_organization
   $scope.calls = []
 
   Communicator.connect($scope.current_agent.id)

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   ACCESS_DENIED_PATH = '/'
 
-  helper_method :current_user, :signed_in?, :login_user
+  helper_method :current_user, :signed_in?, :login_user, :current_organization
 
   def must_be_logged_in
     respond_to do |format|
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound
     cookies.delete(:auth_token)
     redirect_to login_path
+  end
+
+  def current_organization
+    @current_organization = Organization.find_by_id(current_user.organization_id)
   end
 
   def signed_in?
