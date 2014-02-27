@@ -4,16 +4,24 @@
   $scope.total = "0.00"
   $scope.callId = $routeParams.callId
 
-  $scope.minutes = 0
+  $scope.minutes = 0 + "0"
   $scope.seconds = 0 + "0"
-
+  
   $scope.onTimeout = ->
     $scope.seconds++
     $scope.seconds = "0" + $scope.seconds if $scope.seconds < 10
 
+
     if($scope.seconds == 60)
       $scope.seconds = 0 + "0"
-      $scope.minutes++
+      if($scope.minutes > 10 || $scope.minutes == 9)
+        $scope.minutes++;
+      else
+        $scope.minutes++
+        $scope.minutes = "0" + $scope.minutes
+
+
+
 
     mytimeout = $timeout($scope.onTimeout, 1000)
 
