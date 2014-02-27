@@ -33,10 +33,12 @@
 
   <%= javascript_include_tag :application %>
 
-  <script>
-    window.current_user = <%= current_user.to_json(:only => [:id, :full_name, :email, :phone_number, :organization_id]).html_safe %>
+  <% if signed_in? %>
+    <script>
+      window.current_user = <%= current_user.to_json(:only => [:id, :full_name, :email, :phone_number, :organization_id]).html_safe %>
 
-    window.current_organization = <%= current_organization.to_json(:only => [:id, :name]).html_safe %>
-  </script>
+      window.current_organization = <%= current_organization.to_json(:only => [:id, :name]).html_safe %>
+    </script>
+  <% end %>
 </body>
 </html>
