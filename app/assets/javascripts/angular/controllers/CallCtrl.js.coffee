@@ -6,11 +6,10 @@
 
   $scope.minutes = 0 + "0"
   $scope.seconds = 0 + "0"
-  
+
   $scope.onTimeout = ->
     $scope.seconds++
     $scope.seconds = "0" + $scope.seconds if $scope.seconds < 10
-
 
     if($scope.seconds == 60)
       $scope.seconds = 0 + "0"
@@ -19,10 +18,7 @@
       else
         $scope.minutes++
         $scope.minutes = "0" + $scope.minutes
-
-
-
-
+        
     mytimeout = $timeout($scope.onTimeout, 1000)
 
   mytimeout = $timeout($scope.onTimeout, 1000)
