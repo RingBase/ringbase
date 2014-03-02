@@ -1,6 +1,6 @@
-@RingBase.controller "CallCtrl", ($scope, $modal, $timeout, $routeParams) ->
+@RingBase.controller "CallCtrl", ($scope, $modal, $timeout, $routeParams, $window) ->
   $scope.notes_list = []
-  $scope.current_user = window.current_user.full_name
+  $scope.current_user = $window.current_user.full_name
   $scope.total = "0.00"
   $scope.callId = $routeParams.callId
 
