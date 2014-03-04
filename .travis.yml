@@ -4,4 +4,5 @@ gemfile:
 rvm:
   - 2.1.0
 bundler_args: --without development
+before_script: bundle exec rake db:migrate db:test:prepare
 script: bundle exec rspec spec
