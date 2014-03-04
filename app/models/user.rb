@@ -1,5 +1,9 @@
+require 'digest/md5'
+
 class User < ActiveRecord::Base
   has_secure_password
+
+  DEFAULT_AVATAR_SIZE = 60 # px
 
   validates :full_name, presence: true, length: { maximum: 50 }
 
@@ -19,6 +23,24 @@ class User < ActiveRecord::Base
   def peers
     User.where(organization_id: self.organization_id)
         .reject{ |user| user == self }
+  end
+
+  def as_json(options)
+    {
+      id: id,
+      full_name: full_name,
+      email: email,
+      phone_number: phone_number,
+      avatar_url: avatar_url
+    }
+  end
+
+  def avatar_url(options={})
+    md5  = Digest::MD5.hexdigest(email.downcase)
+    url  = "http://www.gravatar.com/avatar/#{md5}"
+    size = options.delete(:size) || DEFAULT_AVATAR_SIZE
+    url += "?s=#{size}"
+    url
   end
 
   private
