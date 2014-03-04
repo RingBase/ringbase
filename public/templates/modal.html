@@ -10,7 +10,7 @@
     <div ng-repeat="agent in all_agents" class="agent-container">
       <input type="radio" />
       <div class="agent">
-        <img class="avatar" src="http://placehold.it/60x60"/>
+        <img class="avatar" src="{{agent.avatar_url}}"/>
         <div class="agent-info">
           <p class="agent-name">{{agent.full_name}}</p> {{agent.email}}
           <p class="agent-status">
