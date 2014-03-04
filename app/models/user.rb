@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
   before_create :generate_auth_token
 
   def peers
-    peers = User.where(organization_id: self.organization_id).reject{ |user| user == self }
-    peers.to_json({:only => [:full_name, :email, :phone_number]})
+    User.where(organization_id: self.organization_id)
+        .reject{ |user| user == self }
   end
 
   private
