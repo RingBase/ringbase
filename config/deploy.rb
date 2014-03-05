@@ -8,7 +8,6 @@ set :user, 'ubuntu'
 set :deploy, '/home/ubuntu'
 set :use_sudo, false
 set :latest_release_directory, File.join(fetch(:deploy_to), 'current')
-
 # set :deploy_to, '/var/www/my_app'
 # set :scm, :git
 
@@ -20,6 +19,7 @@ set :latest_release_directory, File.join(fetch(:deploy_to), 'current')
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+<<<<<<< HEAD
 set :keep_releases, 5
 
 # set :normalize_asset_timestamps %{public/images public/javascripts public/stylesheets}
