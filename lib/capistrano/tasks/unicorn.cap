@@ -1,0 +1,92 @@
+# vi: set ft=ruby :
+
+# See https://github.com/tablexi/capistrano3-unicorn
+set :unicorn_pid, -> { File.join(current_path, "tmp", "pids", "unicorn.pid") }
+set :unicorn_config_path, -> { File.join(current_path, "config", "unicorn.rb") }
+set :unicorn_restart_sleep_time, 3
+set :unicorn_roles, -> { :app }
+set :unicorn_options, -> { "" }
+set :unicorn_rack_env, -> { fetch(:rails_env) == "development" ? "development" : "deployment" }
+
+namespace :unicorn do
+
+  desc "Start Unicorn"
+  task :start do
+    on roles(fetch(:unicorn_roles)) do
+      within current_path do
+        if test("[ -e #{fetch(:unicorn_pid)} ] && kill -0 #{unicorn_pid}")
+          error "Unicorn is already running!"
+        else
+          # TODO: fetch(:stage) here?
+          with rails_env: fetch(:rails_env), bundle_gemfile: fetch(:bundle_gemfile) do
+            execute :bundle, "exec unicorn", "-c", fetch(:unicorn_config_path),
+              "-E", fetch(:unicorn_rack_env), "-D", fetch(:unicorn_options)
+          end
+        end
+      end
+    end
+  end
+
+  desc "Stop Unicorn (QUIT)"
+  task :stop do
+    on roles(fetch(:unicorn_roles)) do
+      within current_path do
+        if test("[ -e #{fetch(:unicorn_pid)} ]")
+          if test("kill -0 #{unicorn_pid}")
+            info "Stopping Unicorn..."
+            execute :kill, "-s QUIT", unicorn_pid
+          else
+            info "Cleaning up dead unicorn pid..."
+            execute :rm, fetch(:unicorn_pid)
+          end
+        else
+          error "Unicorn is not running!"
+        end
+      end
+    end
+  end
+
+  desc "Restart Unicorn (USR2 + QUIT)"
+  task :restart do
+    invoke "unicorn:start"
+    on roles(fetch(:unicorn_roles)) do
+      within current_path do
+        info "Restarting Unicorn..."
+        execute :kill, "-s USR2", unicorn_pid
+        execute :sleep, fetch(:unicorn_restart_sleep_time)
+        if test("[ -e #{fetch(:unicorn_pid)}.oldbin ]")
+          execute :kill, "-s QUIT", unicorn_pid_oldbin
+        end
+      end
+    end
+  end
+
+  desc "Add a worker (TTIN)"
+  task :add_worker do
+    on roles(fetch(:unicorn_roles)) do
+      within current_path do
+        info "Adding worker..."
+        execute :kill, "-s TTIN", unicorn_pid
+      end
+    end
+  end
+
+  desc "Remove a worker (TTOU)"
+  task :remove_worker do
+    on roles(fetch(:unicorn_roles)) do
+      within current_path do
+        info "Removing worker..."
+        execute :kill, "-s TTOU", unicorn_pid
+      end
+    end
+  end
+end
+
+
+def unicorn_pid
+  "`cat #{fetch(:unicorn_pid)}`"
+end
+
+def unicorn_pid_oldbin
+  "`cat #{fetch(:unicorn_pid)}.oldbin`"
+end
