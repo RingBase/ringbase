@@ -10,6 +10,5 @@
 
   $scope.transfer = (model) ->
  	#Communicator.send $scope.model
-    $scope.radioMod = model
-    console.log $scope.radioMod
-    $modalInstance.dismiss "transfer"
+    console.log model
+    $modalInstance.close model

@@ -20,3 +20,6 @@
 
   $scope.handle_call_start = (call) ->
     $scope.calls.push(call)
+
+  $scope.answer = ->
+    console.log "answering call"
