@@ -20,3 +20,10 @@
 
   $scope.handle_call_start = (call) ->
     $scope.calls.push(call)
+
+
+  $scope.handle_call_accepted = (call) ->
+    console.log("call accepted!")
+
+  $scope.handle_call_transfer_completed = (call) ->
+    console.log("call transfer completed!")
