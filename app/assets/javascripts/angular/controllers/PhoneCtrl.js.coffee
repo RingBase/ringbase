@@ -2,6 +2,7 @@
   $scope.current_agent = $window.current_user
   $scope.current_organization = $window.current_organization
   $scope.calls = []
+  $scope.incoming = false
 
   Communicator.connect($scope.current_agent.id)
 
@@ -19,4 +20,5 @@
     # TODO
 
   $scope.handle_call_start = (call) ->
+    $scope.incoming = true
     $scope.calls.push(call)
