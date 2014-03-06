@@ -8,21 +8,22 @@
   <div class="modal-body">
 
     <div ng-repeat="agent in all_agents" class="agent-container">
-      <input type="radio" />
+      <input type="radio" name="radioGroup" ng-model="$parent.radioMod" value="{{agent.id}}"/>
       <div class="agent">
         <img class="avatar" src="{{agent.avatar_url}}"/>
         <div class="agent-info">
-          <p class="agent-name">{{agent.full_name}}</p> {{agent.email}}
-          <p class="agent-status">
+        <p class="agent-name">{{agent.full_name}}</p> {{agent.email}}
+        <p class="agent-status">
             <span class="status-indicator status-available"></span> Available
-          </p>
+        </p>
         </div>
       </div>
     </div>
 
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="transfer(radioMod)">Transfer</button>
+  </div>
+
   </div><!-- .modal-body -->
 
-  <div class="modal-footer">
-    <button type="button" class="btn btn-primary" data-dismiss="modal">Transfer</button>
-  </div>
 </div>

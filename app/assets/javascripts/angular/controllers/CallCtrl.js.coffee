@@ -11,9 +11,9 @@
     $scope.seconds++
     $scope.seconds = "0" + $scope.seconds if $scope.seconds < 10
 
-    if($scope.seconds == 60)
+    if ($scope.seconds == 60)
       $scope.seconds = 0 + "0"
-      if($scope.minutes > 10 || $scope.minutes == 9)
+      if ($scope.minutes > 10 || $scope.minutes == 9)
         $scope.minutes++;
       else
         $scope.minutes++
