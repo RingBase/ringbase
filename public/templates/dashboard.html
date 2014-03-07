@@ -25,25 +25,13 @@
 
         <div ng-show="incoming" class="col-xs-4 incoming-call-container">
           <span class="glyphicon glyphicon-phone-alt incoming-call-icon"></span>
-          <span class="incoming-call-label">Incoming Call!</span>
+          <span class="incoming-call-label">Incoming! ({{calls.length}})</span>
         </div>
 
       </div>
     </div><!-- .notification-bar -->
   </div>
 </div>
-
-
-<div class="col-md-2 sidebar-container">
-  <div class="panel panel-default">
-    <div class="panel-heading">{{current_agent.full_name}}</div>
-    <ul class="nav nav-sidebar">
-      <li><a href="#/dashboard">Dashboard</a></li>
-      <li><a href="#/call/1">Call View</a></li>
-    </ul>
-  </div><!-- .panel-default -->
-</div><!-- .sidebar-container -->
-
 
 <div class="row">
   <div class="col-md-12">

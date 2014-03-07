@@ -11,6 +11,8 @@ body {
   background-color: white;
   color: $gray-text;
 
+  @include mobile { padding-top: 100px; }
+
   & > .container {
     margin-top: 20px;
     @include mobile { margin-top: 0; }
@@ -83,10 +85,14 @@ body {
   }
 }
 
-
 .notification-bar-container {
   display: none;
   margin-bottom: 20px;
+  position:fixed;
+  top:45px;
+  padding-left:0px;
+  padding-right:0px;
+  z-index:9001;
 
   @include mobile { display: block; }
 }
