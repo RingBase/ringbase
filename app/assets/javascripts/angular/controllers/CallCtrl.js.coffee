@@ -3,7 +3,7 @@
   $scope.current_user = $window.current_user.full_name
   $scope.total = "0.00"
   $scope.callId = $routeParams.callId
-
+  $scope.phoneNumber = $routeParams.phoneNumber;
   $scope.minutes = 0 + "0"
   $scope.seconds = 0 + "0"
 

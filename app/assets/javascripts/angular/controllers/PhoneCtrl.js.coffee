@@ -20,7 +20,4 @@
 
   $scope.handle_call_start = (call) ->
     $scope.calls.push(call)
-
-  $scope.answer = (phone_number) ->
-    console.log "answering call"
-    console.log phone_number
+    
