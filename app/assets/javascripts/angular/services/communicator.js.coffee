@@ -22,10 +22,10 @@
 
     service.conn = conn
 
-  service.send = (message) ->
-    # TODO: action
-    json = JSON.stringify({"agent_id": agentId, "action": "broadcast", "data": message })
-    service.conn.send(json)
+
+  # TODO: can we tag json with current agent id here? How to access?
+  service.send = (json) ->
+    service.conn.send(JSON.stringify(json))
 
   service.subscribe = (callback) ->
     service.callback = callback
