@@ -31,14 +31,14 @@
     <% end %>
   </div><!-- .container -->
 
-  <%= javascript_include_tag :application %>
 
   <% if signed_in? %>
-    <script>
-      window.current_user = <%= current_user.to_json(:only => [:id, :full_name, :email, :phone_number, :organization_id]).html_safe %>
-
-      window.current_organization = <%= current_organization.to_json(:only => [:id, :name]).html_safe %>
+    <script type="text/javascript">
+      window.current_user = JSON.parse('<%= raw current_user.to_json %>');
+      window.current_organization = JSON.parse('<%= raw current_organization.to_json %>');
     </script>
   <% end %>
+
+  <%= javascript_include_tag :application %>
 </body>
 </html>

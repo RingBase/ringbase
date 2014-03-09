@@ -37,3 +37,12 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+
+def login_user(user)
+  cookies[:auth_token] = user.auth_token
+end
+
+def logout!
+  cookies.delete(:auth_token)
+end

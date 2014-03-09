@@ -11,12 +11,31 @@
     $scope["handle_#{type}"](call)
     $scope.$apply()
 
-  $scope.send = ->
-    Communicator.send $scope.text
-    $scope.text = ""
+
+  $scope.send = (event) ->
+    Communicator.send(event)
+
+
+  $scope.accept_call = ->
+    console.log 'accepting call - send to broker'
+    $scope.send {
+      type: 'call_accept',
+      agent_id: $scope.current_agent.id,
+      call: {
+        id: 2
+      }
+    }
+
 
   $scope.handle_join = (data) ->
     # TODO
 
   $scope.handle_call_start = (call) ->
     $scope.calls.push(call)
+
+
+  $scope.handle_call_accepted = (call) ->
+    console.log("call accepted!")
+
+  $scope.handle_call_transfer_completed = (call) ->
+    console.log("call transfer completed!")

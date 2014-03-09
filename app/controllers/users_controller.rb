@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    respond_with current_user.peers
+    respond_with current_user.peers.to_json
   end
 
   private
