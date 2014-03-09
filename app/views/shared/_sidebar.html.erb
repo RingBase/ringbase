@@ -1,6 +1,9 @@
-<div class="col-md-2 sidebar-container">
+<div class="col-md-3 sidebar-container">
   <div class="panel panel-default">
-    <div class="panel-heading"><%= current_user.full_name %></div>
+    <div class="panel-heading">
+      <%= avatar_for(current_user) %>
+      <span class="agent-name"><%= current_user.full_name %></span>
+    </div>
     <ul class="nav nav-sidebar">
       <li><a href="#/dashboard">Dashboard</a></li>
       <li><a href="#/settings">Settings</a></li>
