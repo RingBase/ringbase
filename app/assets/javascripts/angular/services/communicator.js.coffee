@@ -1,7 +1,7 @@
 @RingBase.factory "Communicator", ->
   service = {}
 
-  service.connect = (agent_id) ->
+  service.connect = (agent_id, callback=null) ->
     if service.conn?
       console.error("Already connected!")
       return
@@ -10,6 +10,7 @@
 
     conn.onopen = ->
       conn.send(JSON.stringify({ "agent_id": agent_id, "type": "login" }))
+      callback() if callback?
 
     conn.onmessage = (json) ->
       #console.log("GOT FROM SERVER: " + json.data)

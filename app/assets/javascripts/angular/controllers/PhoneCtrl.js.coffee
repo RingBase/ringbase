@@ -3,12 +3,17 @@
   $scope.current_organization = $window.current_organization
   $scope.calls = []
 
-  Communicator.connect($scope.current_agent.id)
 
-  Communicator.subscribe (data) ->
-    type = data.type
-    call = data.data # TODO: :(
-    $scope["handle_#{type}"](call)
+  Communicator.connect $scope.current_agent.id, ->
+    Communicator.send { type: 'list_calls', agent_id: $scope.current_agent.id }
+
+
+  # When we receive data from the broker, dispatch the appropriate handler
+  # and "re-render"
+  Communicator.subscribe (json) ->
+    type = json.type
+    data = json.data
+    $scope["handle_#{type}"](data)
     $scope.$apply()
 
 
@@ -39,3 +44,8 @@
 
   $scope.handle_call_transfer_completed = (call) ->
     console.log("call transfer completed!")
+
+
+  $scope.handle_call_list = (json) ->
+    console.log "got call list from broker"
+    console.log json
