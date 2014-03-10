@@ -15,7 +15,11 @@
     conn.onmessage = (json) ->
       #console.log("GOT FROM SERVER: " + json.data)
       data = JSON.parse(json.data)
-      service.callback(data)
+      console.log data
+      if service.callback?
+        service.callback(data)
+      else
+        console.error("Need handler function!")
 
     conn.onerror = (err) ->
       # TODO: errback?
@@ -23,10 +27,13 @@
 
     service.conn = conn
 
-
   # TODO: can we tag json with current agent id here? How to access?
   service.send = (json) ->
     service.conn.send(JSON.stringify(json))
+
+  service.transfer = (agent_id) ->
+    json = JSON.stringify({"type": "call_transfer_request", "agent_id": agent_id})
+    service.conn.send(json)
 
   service.subscribe = (callback) ->
     service.callback = callback
