@@ -1,4 +1,4 @@
-@RingBase.controller "PhoneCtrl", ($scope, $window, Communicator, Agent) ->
+@RingBase.controller "PhoneCtrl", ($scope, $window, Communicator) ->
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
