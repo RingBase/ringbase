@@ -31,8 +31,8 @@
   service.send = (json) ->
     service.conn.send(JSON.stringify(json))
 
-  service.transfer = (agent_id) ->
-    json = JSON.stringify({"type": "call_transfer_request", "agent_id": agent_id})
+  service.transfer = (agent_id, call) ->
+    json = JSON.stringify({"type": "call_transfer_request", "agent_id": agent_id, "call": call})
     service.conn.send(json)
 
   service.subscribe = (callback) ->
