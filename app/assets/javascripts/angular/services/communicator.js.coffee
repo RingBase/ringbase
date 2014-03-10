@@ -1,7 +1,7 @@
 @RingBase.factory "Communicator", ->
   service = {}
 
-  service.connect = (agent_id) ->
+  service.connect = (agent_id, callback=null) ->
     if service.conn?
       console.error("Already connected!")
       return
@@ -10,6 +10,7 @@
 
     conn.onopen = ->
       conn.send(JSON.stringify({ "agent_id": agent_id, "type": "login" }))
+      callback() if callback?
 
     conn.onmessage = (json) ->
       #console.log("GOT FROM SERVER: " + json.data)
@@ -22,10 +23,10 @@
 
     service.conn = conn
 
-  service.send = (message) ->
-    # TODO: action
-    json = JSON.stringify({"agent_id": agentId, "action": "broadcast", "data": message })
-    service.conn.send(json)
+
+  # TODO: can we tag json with current agent id here? How to access?
+  service.send = (json) ->
+    service.conn.send(JSON.stringify(json))
 
   service.subscribe = (callback) ->
     service.callback = callback

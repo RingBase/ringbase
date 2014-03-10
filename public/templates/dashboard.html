@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h1>{{current_organization.name}}</h1>
+    <h1 class="organization-name">{{current_organization.name}}</h1>
   </div>
 </div>
 
@@ -55,16 +55,17 @@
         <th>Actions</th>
       </tr>
 
-      <tr ng-repeat="call in calls">
+      <tr ng-repeat="(id,call) in calls">
         <td>{{ call.name }}</td>
         <td>{{ call.city }}</td>
         <td>{{ call.number }}</td>
 
         <td>
-          <a href="#/call/{{ call.id }}/{{ call.number}}">
+          <a ng-click="accept_call(call.id)" ng-hide="call.answered" class="answer-call">
             <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span>
             Answer
           </a>
+          <div class="spinner" ng-show="call.answered" class="ng-hide"></div>
         </td>
 
       </tr>
