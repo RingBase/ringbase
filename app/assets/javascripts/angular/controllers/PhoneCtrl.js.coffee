@@ -3,8 +3,8 @@
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
 
-  Communicator.connect $scope.current_agent.id, ->
-    Communicator.send { type: 'list_calls', agent_id: $scope.current_agent.id }
+  Communicator.connect $scope.current_user.id, ->
+    Communicator.send { type: 'list_calls', agent_id: $scope.current_user.id }
 
 
   # When we receive data from the broker, dispatch the appropriate handler
@@ -48,5 +48,5 @@
 
 
   $scope.handle_call_list = (json) ->
-    console.log "got call list from broker"
-    console.log json
+    for call_id,call of json.calls
+      $scope.calls[call_id] = call
