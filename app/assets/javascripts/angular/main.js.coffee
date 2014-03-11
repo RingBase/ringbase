@@ -23,3 +23,7 @@
     controller: "PhoneCtrl"
   })
 )
+
+@RingBase.run ($rootScope, $window, Communicator) ->
+  $rootScope.communicator = Communicator
+  $rootScope.communicator.connect($window.current_user)

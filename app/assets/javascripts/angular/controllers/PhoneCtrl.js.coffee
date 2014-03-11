@@ -1,8 +1,4 @@
-@RingBase.run ($rootScope, $window, Communicator) ->
-  $rootScope.communicator = Communicator
-  $rootScope.communicator.connect($window.current_user)
-
-@RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, Communicator, Agent) ->
+@RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, Communicator) ->
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
