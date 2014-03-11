@@ -1,9 +1,12 @@
+# TODO: this should define some of the handlers that are currently defined in the PhoneCtrl
+
+
 @RingBase.controller "CallCtrl", ($scope, $modal, $timeout, $routeParams, $window) ->
   $scope.notes_list = []
   $scope.current_user = $window.current_user.full_name
   $scope.total = "0.00"
   $scope.callId = $routeParams.callId
-  $scope.phoneNumber = $routeParams.phoneNumber;
+  $scope.phoneNumber = $routeParams.phoneNumber
   $scope.minutes = 0 + "0"
   $scope.seconds = 0 + "0"
 
@@ -14,11 +17,11 @@
     if ($scope.seconds == 60)
       $scope.seconds = 0 + "0"
       if ($scope.minutes > 10 || $scope.minutes == 9)
-        $scope.minutes++;
+        $scope.minutes++
       else
         $scope.minutes++
         $scope.minutes = "0" + $scope.minutes
-        
+
     mytimeout = $timeout($scope.onTimeout, 1000)
 
   mytimeout = $timeout($scope.onTimeout, 1000)

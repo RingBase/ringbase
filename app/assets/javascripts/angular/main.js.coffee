@@ -26,4 +26,5 @@
 
 @RingBase.run ($rootScope, $window, Communicator) ->
   $rootScope.communicator = Communicator
-  $rootScope.communicator.connect($window.current_user)
+  console.log "rootScope connecting communicator"
+  $rootScope.communicator.connect($window.current_user.id)
