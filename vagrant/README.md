@@ -12,3 +12,5 @@ To access the Vim run `vagrant ssh`.
 
 Final Note
 If you want to start Cassandra run `sudo sh ~/apache-cassandra-2.0.5/bin/cassandra`
+
+Control Cassandra from CLI `~/apache-cassandra-2.0.5/bin/cqlsh`
