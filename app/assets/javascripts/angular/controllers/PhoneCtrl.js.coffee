@@ -50,5 +50,5 @@
     console.log("call transfer completed!")
 
   $scope.handle_call_list = (json) ->
-    console.log "got call list from broker"
-    console.log json
+    for call_id,call of json.calls
+      $scope.calls[call_id] = call
