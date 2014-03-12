@@ -1,0 +1,53 @@
+.landing-image-container {
+  background: url('/assets/telemarketer.jpg') no-repeat;
+  background-size: cover;
+  background-position: right top;
+  height: 515px;
+
+  @include mobile {
+    background-position: left top;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin: 0;
+    padding-top: 5em;
+
+  }
+
+  .btn {
+    margin-top: 2.5em;
+  }
+}
+
+
+.features-container,
+.closing-cta {
+  text-align: center;
+  padding: 60px 0;
+  h2 {
+    color: #544f4f;
+    font-size: 1.7em;
+    margin-bottom: 60px;
+  }
+}
+
+
+.features-container {
+  border-bottom: 1px solid $light-gray;
+
+  .glyphicon {
+    color: $blue;
+    font-size: 3em;
+    margin-bottom: 30px;
+  }
+
+  h3 {
+    border-bottom: 1px dashed darken($light-gray, 10);
+    padding-bottom: 10px;
+    font-size: 1.3em;
+    max-width: 80%;
+    margin: 0 auto 20px;
+  }
+}
