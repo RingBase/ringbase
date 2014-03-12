@@ -5,15 +5,12 @@
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
 
-  # When we receive data from the broker, dispatch the appropriate handler and "re-render"
-  $rootScope.communicator.subscribe (json) ->
-    type = json.type
-    data = json.data
-    $scope["handle_#{type}"](data)
-    $scope.$apply()
-
   $scope.send = (event) ->
     $rootScope.communicator.send(event)
+
+  # Load calls as soon as we're connected
+  $rootScope.communicator.on_connect ->
+    $scope.send { type: "list_calls", agent_id: $window.current_user.id }
 
   $scope.accept_call = (call) ->
     $scope.calls[call.id].answered = true
@@ -33,28 +30,21 @@
   # Event handlers
   # -------------------------
 
-  $scope.handle_call_start = (call) ->
+  $rootScope.$on 'handle_call_start', (evt, call) ->
+    console.log("call started!")
     call.answered = false
     $scope.calls[call.id] = call
-    console.log("call started!")
+    $scope.$apply()
 
 
   # TODO: check if we're an interested listener here?
-  $scope.handle_call_accepted = (call) ->
-    console.log("call accepted! redirect")
-    $location.path("/call/#{call.id}/#{call.number}")
+  $rootScope.$on 'handle_call_accepted', (evt, call) ->
+    console.log "call accepted! redirect"
+    $scope.$apply ->
+      $location.path("/call/#{call.id}/#{call.number}")
 
 
-  $scope.handle_call_transfer_completed = (call) ->
-    # TODO: this is running on the call view page??
-    # Therefore if we refresh on the call view page we lose the subscribe/dispatch setup in this Ctrl
-    console.log("call transfer completed!")
-    #$modalInstance.dismiss('cancel')
-    $timeout ->
-      $location.path("/")
-    , 1000
-
-
-  $scope.handle_call_list = (json) ->
-    for call_id,call of json.calls
-      $scope.calls[call_id] = call
+  $rootScope.$on 'handle_call_list', (evt, json) ->
+    for call in json.calls
+      $scope.calls[call.id] = call
+    $scope.$apply()

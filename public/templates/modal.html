@@ -5,7 +5,7 @@
   </div>
 
 
-  <div class="modal-body" ng-hide="TODO.transferred">
+  <div class="modal-body" ng-hide="transferred">
     <div ng-repeat="agent in all_agents" class="agent-container">
       <input type="radio" name="radioGroup" ng-model="$parent.radioMod" value="{{agent.id}}"/>
       <div class="agent">
@@ -27,7 +27,7 @@
   </div>
 
 
-  <div class="modal-body" ng-show="TODO.transferred">
-    <div class="spinner modal-spinner" ng-show="TODO.transferred"></div>
+  <div class="modal-body" ng-show="transferred">
+    <div class="spinner modal-spinner"></div>
   </div>
 </div>

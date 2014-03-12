@@ -1,7 +1,8 @@
 # TODO: this should define some of the handlers that are currently defined in the PhoneCtrl
 
 
-@RingBase.controller "CallCtrl", ($scope, $modal, $timeout, $routeParams, $window) ->
+@RingBase.controller "CallCtrl", ($scope, $rootScope, $modal, $timeout, $location, $routeParams, $window) ->
+  $scope.modalInstance = null
   $scope.notes_list = []
   $scope.current_user = $window.current_user.full_name
   $scope.total = "0.00"
@@ -27,7 +28,7 @@
   mytimeout = $timeout($scope.onTimeout, 1000)
 
   $scope.open = ->
-    modalInstance = $modal.open {
+    $scope.modalInstance = $modal.open {
       templateUrl: 'templates/modal.html',
       controller: 'ModalInstanceCtrl'
     }
@@ -47,3 +48,11 @@
     minutes = date.getMinutes()
     seconds = ('0' + date.getSeconds()).substr(-2)
     "#{hours}:#{minutes}:#{seconds}"
+
+
+  $rootScope.$on 'handle_call_transfer_completed', (evt, call) ->
+    console.log("call transfer completed!")
+    $scope.modalInstance.close()
+    $timeout ->
+      $location.path("/")
+    , 1000

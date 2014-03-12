@@ -1,13 +1,13 @@
-@RingBase.factory "Communicator", ->
+@RingBase.factory "Communicator", ($rootScope) ->
   service = {}
+  service.calls = []
 
   # Connect to the broker with a WebSocket and wire up socket handlers
   #
   # agent_id - Number id of the logged-in agent attempting to connect
-  # callback - (optional) Function to be invoked when connection is complete
   #
   # Returns nothing
-  service.connect = (agent_id, callback=null) ->
+  service.connect = (agent_id) ->
     if service.conn?
       console.error("Already connected!")
       return
@@ -16,15 +16,21 @@
 
     conn.onopen = ->
       conn.send(JSON.stringify({ "agent_id": agent_id, "type": "login" }))
-      callback() if callback?
+      service.connect_callback() if service.connect_callback?
 
-    conn.onmessage = (json) ->
-      data = JSON.parse(json.data)
-      service.callback(data) if service.callback?
+    conn.onmessage = (socket_data) ->
+      json = JSON.parse(socket_data.data)
+      $rootScope.$broadcast("handle_#{json.type}", json.data)
 
     conn.onerror = (err) -> # TODO: errback?
 
     service.conn = conn
+
+  service.on_connect = (fn) ->
+    if service.conn.readyState != 1 # Not ready
+      service.connect_callback = fn
+    else
+      fn()
 
 
   # Send a blob of data data to the Broker over WebSockets
@@ -49,14 +55,5 @@
     console.log "Entered Communicator#send_transfer_request, agent_id: #{agent_id}, call_id: #{call_id}"
     json = JSON.stringify({ type: "call_transfer_request", agent_id: agent_id, call_id: call_id })
     service.conn.send(json)
-
-
-  # Define a handler function to be invoked with any JSON received from the broker
-  #
-  # callback - Function callback to be invoked
-  #
-  # Returns nothing
-  service.subscribe = (callback) ->
-    service.callback = callback
 
   service
