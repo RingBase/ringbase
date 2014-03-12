@@ -15,7 +15,8 @@
 
   <%= yield(:before_container) %>
 
-  <div class="container">
+  <% container_class = (!signed_in? && current_page?(root_path)) ? '' : 'container' %>
+  <div class="<%= container_class %>">
     <% if signed_in? %>
       <div class="row">
 
