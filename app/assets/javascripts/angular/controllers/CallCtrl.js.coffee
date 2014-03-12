@@ -4,7 +4,7 @@
 @RingBase.controller "CallCtrl", ($scope, $rootScope, $modal, $timeout, $location, $routeParams, $window) ->
   $scope.modalInstance = null
   $scope.notes_list = []
-  $scope.current_user = $window.current_user.full_name
+  $scope.current_user = $window.current_user
   $scope.total = "0.00"
   $scope.callId = $routeParams.callId
   $scope.phoneNumber = $routeParams.phoneNumber
@@ -34,7 +34,16 @@
     }
 
   $scope.send = ->
-    $scope.notes_list.push([$scope.note, current_time()])
+    current_user = $scope.current_user
+
+    $scope.notes_list.push([$scope.note, current_time(), current_user.full_name])
+    $rootScope.communicator.send {
+      type: "update_notes",
+      agent_id: current_user.id,
+      call_id: $routeParams.callId,
+      note: $scope.note,
+      user_name: current_user.full_name
+    }
     $scope.note = ""
 
   $scope.$watch 'total', ->
@@ -56,3 +65,8 @@
     $timeout ->
       $location.path("/")
     , 1000
+
+  $rootScope.$on 'handle_notes_updated', (evt, data) ->
+    console.log "notes updated, got data: ", data
+    if data.call_id == $routeParams.callId
+      $scope.notes_list.push([data.note, current_time(), data.user_name])
