@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220050709) do
+ActiveRecord::Schema.define(version: 20140406232752) do
 
   create_table "campaigns", force: true do |t|
     t.integer  "organization_id"
     t.string   "pilot_number"
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invitations", force: true do |t|
+    t.string   "token"
+    t.integer  "sender_id"
+    t.integer  "organization_id"
+    t.string   "recipient_email"
+    t.boolean  "used",            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
