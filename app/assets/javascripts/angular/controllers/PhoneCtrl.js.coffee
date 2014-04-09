@@ -1,9 +1,12 @@
 # Controller for main dashboard
 
-@RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, $timeout) ->
+@RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, $timeout, Agent) ->
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
+  
+  Agent.getAllAgents().then (agents) -> $scope.all_agents = agents
+
 
   $scope.send = (event) ->
     $rootScope.communicator.send(event)

@@ -35,9 +35,8 @@
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
       <span class="caret"></span>
     </button>
-
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#/dashboard">Nivedh Mohinder</a></li>
+          <li ng-repeat="agent in all_agents" ><a href="#/dashboard">{{agent.full_name}}</a></li>
     </ul>
   </div>
 </div>
