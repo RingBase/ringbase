@@ -8,6 +8,8 @@
   //&:focus { box-shadow: none; }
 }
 
+label { font-size: 1em; }
+
 
 .btn {
   @include border-radius;
@@ -25,11 +27,15 @@
 }
 
 
-.alert { @include border-radius; }
+.alert {
+  @include border-radius;
+
+  ul { padding-left: 10px; }
+}
 
 
 .modal-content { @include border-radius; }
 
-.btn-group .btn {
+.btn-group-light .btn {
   background-color: lighten($med-gray, 7) !important;
 }

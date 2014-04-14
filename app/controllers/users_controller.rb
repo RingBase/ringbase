@@ -7,13 +7,14 @@ class UsersController < ApplicationController
 
   def create
     org  = Organization.create!(name: organization_name)
-    org.campaigns.create!(title: organization_name,
-                          pilot_number: pilot_number) # TODO: title ?
-    user = org.users.build(user_params)
+    org.campaigns.create!(title: organization_name, pilot_number: pilot_number)
+    @user = org.users.build(user_params)
 
-    if user.save
-      login_user(user)
-      redirect_to dashboard_path
+    if @user.save
+      login_user(@user)
+
+      # TODO: hack
+      redirect_to "/#/organizations/#{org.id}/invite"
     else
       flash[:error] = "Something went wrong!"
       render :new
