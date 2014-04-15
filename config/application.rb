@@ -31,5 +31,7 @@ module RingBase
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
+    config.action_mailer.default_url_options = { host: "ringbase.io" }
+
   end
 end
