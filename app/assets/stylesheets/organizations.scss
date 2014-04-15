@@ -1,0 +1,26 @@
+.invitation-form {
+  @include clearfix;
+  margin: 30px 0 30px;
+
+  .ng-scope:first-of-type .invitation-remove {
+    // Don't show remove button for first field
+    display: none;
+  }
+
+  .invitation-field {
+    @include clearfix;
+    position: relative;
+
+  }
+
+  .invitation-remove {
+    color: $med-gray;
+    font-size: 1.3em;
+    font-weight: bold;
+    position: absolute;
+    top: 4px;
+    right: 7px;
+
+    &:hover { text-decoration: none; }
+  }
+}

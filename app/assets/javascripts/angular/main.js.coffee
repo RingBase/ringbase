@@ -10,6 +10,10 @@
     templateUrl: "templates/dashboard.html",
     controller: "PhoneCtrl"
   )
+  .when("/organizations/:id/invite",
+    templateUrl: "templates/invite.html"
+    controller: "InvitationCtrl"
+  )
   .when("/dashboard",
     templateUrl: "templates/dashboard.html"
     controller: "PhoneCtrl"

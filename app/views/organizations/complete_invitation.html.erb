@@ -1,0 +1,42 @@
+
+<div class="row">
+  <h1 style="margin-bottom:20px; text-align:center;">Welcome to RingBase</h1>
+
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_tag complete_invitation_path(token: @invitation.token) do %>
+      <% if @user.errors.present? %>
+        <div class="alert alert-danger">
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, @invitation.recipient_email, class: 'form-control',
+          disabled: 'disabled' %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :full_name %>
+        <%= text_field_tag :full_name, '', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, '', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :password_confirmation, 'Confirm Password' %>
+        <%= password_field_tag :password_confirmation, '', class: 'form-control' %>
+      </div>
+
+      <%= submit_tag 'Sign Up', class: 'btn btn-primary pull-right' %>
+    <% end %>
+
+  </div>
+</div>
