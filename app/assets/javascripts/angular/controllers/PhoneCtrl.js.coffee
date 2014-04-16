@@ -4,9 +4,16 @@
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
+  $scope.inProgressCalls = {} # this will hold all the calls that are in progress
   
   Agent.getAllAgents().then (agents) -> $scope.all_agents = agents
 
+  $scope.getInProgressCalls = ->
+      for id,call in $scope.calls
+        if call[call.id].answered == true
+          $scope.inProgressCalls[call.id] = call
+          $scope.$apply()
+  
 
   $scope.send = (event) ->
     $rootScope.communicator.send(event)
@@ -21,12 +28,15 @@
       type: 'call_accept',
       agent_id: $scope.current_user.id,
       call: {
+        agent_id: current_user.id
+        agent_name: current_user.full_name
         id: call.id,
         name: call.name,
         email: call.email,
         city: call.city,
         number: call.number
       }
+
     }
 
 
@@ -51,3 +61,4 @@
     for call in json.calls
       $scope.calls[call.id] = call
     $scope.$apply()
+

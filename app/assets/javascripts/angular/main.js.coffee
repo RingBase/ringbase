@@ -18,6 +18,15 @@
     templateUrl: "templates/dashboard.html"
     controller: "PhoneCtrl"
   )
+  .when("/inProgress",
+    templateUrl: "templates/in-progress.html"
+    controller: "PhoneCtrl"
+    
+  )
+  .when("/completed",
+    templateUrl: "templates/completed.html"
+    controller: "PhoneCtrl"
+  )
   .when("/call/:callId/:phoneNumber",
     templateUrl: "templates/call.html"
     controller: "CallCtrl"

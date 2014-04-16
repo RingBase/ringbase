@@ -8,8 +8,8 @@
 <div class="row">
   <div class="col-md-12">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#/dashboard">Incoming</a></li>
-      <li><a href="#/inProgress" ng-click="getInProgressCalls()">In Progress</a></li>
+      <li><a href="#/dashboard">Incoming</a></li>
+      <li class="active"><a href="#/inProgress">In Progress</a></li>
       <li><a href="#/completed">Completed</a></li>
     </ul>
   </div>
@@ -31,7 +31,13 @@
   </div>
 
   <div class="col-md-3 btn-group btn-group-light">
-
+    <button type="button" class="btn">Agent Name</button>
+    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+          <li ng-repeat="agent in all_agents" ><a href="#/dashboard">{{agent.full_name}}</a></li>
+    </ul>
   </div>
 </div>
 
@@ -45,27 +51,27 @@
         <th>Name</th>
         <th>Location</th>
         <th>Phone Number</th>
-        <th>Actions</th>
+        <th>Agent on Call</th>
       </tr>
 
-      <tr ng-repeat="(id,call) in calls">
-        <td>{{ call.name }}</td>
-        <td>{{ call.city }}</td>
-        <td>{{ call.number }}</td>
+       
+        <tr>
+        <td>Bob Saget</td>
+        <td>San Jose, CA</td>
+        <td>4084589176</td>
+        <td>Nivedh Mohinder</td>
+        </tr>
+         <tr>
+        <td>Daniel Johnson</td>
+        <td>Los Angeles, CA</td>
+        <td>8501438732</td>
+        <td>Pete Cruise</td>
+        </tr>
 
         <td>
-          <a ng-click="accept_call(call)" ng-hide="call.answered" class="answer-call">
-            <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span>
-            Answer
-          </a>
-          <div class="spinner" ng-show="call.answered"></div>
-        </td>
-
-        <td>
 
 
-      </tr>
-    </table>
+         </table>
 
   </div>
 </div>
