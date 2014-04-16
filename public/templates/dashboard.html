@@ -26,7 +26,9 @@
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a href="#/dashboard">Santa Barbara</a></li>
+      <li ng-repeat="(id,call) in calls">
+        <a href="#/dashboard">{{call.city}}</a>
+      </li>
     </ul>
   </div>
 
