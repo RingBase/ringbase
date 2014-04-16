@@ -9,7 +9,7 @@
   Agent.getAllAgents().then (agents) -> $scope.all_agents = agents
 
   $scope.getInProgressCalls = ->
-      for id,call in $scope.calls
+      for id,call of $scope.calls
         if call[call.id].answered == true
           $scope.inProgressCalls[call.id] = call
           $scope.$apply()
