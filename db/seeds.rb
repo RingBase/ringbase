@@ -8,6 +8,7 @@ org.campaigns.create!(title: org.name, pilot_number: "555-123-4567")
 
 
 [
+ { full_name: 'John Smith', email: 'john@best.com' },
  { full_name: 'Andrew Twirls', email: 'andrew.berls@gmail.com' },
  { full_name: 'Nivedh Mohinder', email: 'nivedh.mudaliar@gmail.com' },
  { full_name: 'Alex Timber', email: 'awood314@gmail.com' },
