@@ -1,9 +1,16 @@
 # Controller for main dashboard
 
-@RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, $timeout) ->
+@RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, $timeout, Agent) ->
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
+  $scope.locations = {}
+  
+  Agent.getAllAgents().then (agents) -> $scope.all_agents = agents
+
+
+
+
 
   $scope.send = (event) ->
     $rootScope.communicator.send(event)
@@ -11,6 +18,16 @@
   # Load calls as soon as we're connected
   $rootScope.communicator.on_connect ->
     $scope.send { type: "list_calls", agent_id: $window.current_user.id }
+
+  $scope.filterCalls = (city) ->
+    for id,call of $scope.calls
+      if(call.city == city)
+        $scope.calls = {}
+        $scope.calls[id] = call
+
+
+   
+
 
   $scope.accept_call = (call) ->
     $scope.calls[call.id].answered = true

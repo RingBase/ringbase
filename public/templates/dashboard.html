@@ -26,8 +26,9 @@
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li ng-repeat="(id,call) in calls">
-        <a href="#/dashboard">{{call.city}}</a>
+      <li><a>All Cities</a></li>
+      <li selected ng-repeat="(id,call) in calls">
+        <a ng-click = "filterCalls(call.city)">{{call.city}}</a>
       </li>
     </ul>
   </div>
