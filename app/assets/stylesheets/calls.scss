@@ -26,12 +26,19 @@
 .call-duration {}
 
 .call-payout-container {
+  span {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
   .call-payout {
-    border: 0;
-    border-bottom: 1px dashed darken($med-gray, 10);
     color: lighten($gray-text, 7);
-    font-size: 0.9em;
-    padding: 0;
+    float: left;
+    font-size: 0.8em;
+    height: auto;
+    padding: 2px;
     width: 50%;
 
     &:focus {
