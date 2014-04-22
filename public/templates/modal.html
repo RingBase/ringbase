@@ -4,18 +4,19 @@
     <h4 class="modal-title">Choose Transfer</h4>
   </div>
 
-
   <div class="modal-body" ng-hide="transferred">
     <div ng-repeat="agent in all_agents" class="agent-container">
-      <input type="radio" name="radioGroup" ng-model="$parent.radioMod" value="{{agent.id}}"/>
-      <div class="agent">
-        <img class="avatar" src="{{agent.avatar_url}}"/>
-        <div class="agent-info">
-        <p class="agent-name">{{agent.full_name}}</p> {{agent.email}}
-        <p class="agent-status">
+      <input type="radio" name="radioGroup" id="radioGroup{{agent.id}}" ng-model="$parent.radioMod" value="{{agent.id}}"/>
+      <label for="radioGroup{{agent.id}}">
+        <div class="agent">
+          <img class="avatar" src="{{agent.avatar_url}}"/>
+          <div class="agent-info">
+            <p class="agent-name">{{agent.full_name}}</p> {{agent.email}}
+            <p class="agent-status">
             <span class="status-indicator status-available"></span> Available
-        </p>
-        </div>
+            </p>
+          </div>
+        </label>
       </div>
     </div>
 
