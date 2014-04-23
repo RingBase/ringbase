@@ -21,14 +21,16 @@
   <div class="col-md-2">Filter By:</div>
 
   <div class="col-md-3 btn-group">
-    <button type="button" class="btn">Location</button>
+    <button type="button" class="btn">Select City</button>
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu">
-      <li><a>All Cities</a></li>
+      <li>
+        <a ng-click="selectedCity='Select City'">All Cities</a>
+      </li>
       <li selected ng-repeat="(id,call) in calls">
-        <a ng-click = "filterCalls(call.city)">{{call.city}}</a>
+        <a ng-click="setSelectedCity(call.city)">{{call.city}}</a>
       </li>
     </ul>
   </div>
@@ -45,7 +47,6 @@
   </div>
 </div>
 
-
 <!-- table of calls -->
 <div class="row top-buffer">
   <div class="col-md-12">
@@ -58,7 +59,7 @@
         <th>Actions</th>
       </tr>
 
-      <tr ng-repeat="(id,call) in calls">
+      <tr ng-repeat="(id,call) in calls | locationFilter:this">
         <td>{{ call.name }}</td>
         <td>{{ call.city }}</td>
         <td>{{ call.number }}</td>

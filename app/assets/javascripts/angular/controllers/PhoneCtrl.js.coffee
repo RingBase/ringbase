@@ -4,30 +4,19 @@
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
-  $scope.locations = {}
-  
+  $scope.selectedCity = "Select City"
+
+
   Agent.getAllAgents().then (agents) -> $scope.all_agents = agents
-
-
-
-
-
   $scope.send = (event) ->
     $rootScope.communicator.send(event)
 
   # Load calls as soon as we're connected
   $rootScope.communicator.on_connect ->
-    $scope.send { type: "list_calls", agent_id: $window.current_user.id }
+    $scope.send { type: "list_calls", agent_id: $window.current_user.id, org_id: $window.current_organization.id }
 
-  $scope.filterCalls = (city) ->
-    for id,call of $scope.calls
-      if(call.city == city)
-        $scope.calls = {}
-        $scope.calls[id] = call
-
-
-   
-
+  $scope.setSelectedCity = (city) ->
+    $scope.selectedCity = city
 
   $scope.accept_call = (call) ->
     $scope.calls[call.id].answered = true
@@ -42,8 +31,6 @@
         number: call.number
       }
     }
-
-
   # Event handlers
   # -------------------------
 
@@ -65,3 +52,17 @@
     for call in json.calls
       $scope.calls[call.id] = call
     $scope.$apply()
+
+
+@RingBase.filter "locationFilter", ->
+  (input, scope) ->
+    filterCalls = []
+    if(scope.selectedCity == "Select City")
+      input
+    else
+      for id,call of input
+        if(scope.selectedCity == call.city)
+          filterCalls.push call
+      filterCalls
+        
+  
