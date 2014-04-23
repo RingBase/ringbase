@@ -20,7 +20,7 @@
 
   # Load calls as soon as we're connected
   $rootScope.communicator.on_connect ->
-    $scope.send { type: "list_calls", agent_id: $window.current_user.id }
+    $scope.send { type: "list_calls", agent_id: $window.current_user.id, org_id: $window.current_organization.id }
 
   $scope.accept_call = (call) ->
     $scope.calls[call.id].answered = true
