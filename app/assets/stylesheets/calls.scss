@@ -58,9 +58,13 @@
 
 .notes-header-container {
   margin-bottom: 10px;
-  border-bottom: 1px solid $med-gray;
+  //border-bottom: 1px solid $med-gray;
 
-  h3 { margin: 10px 0 10px 10px; }
+  h3 {
+    border-bottom: 1px solid $med-gray;
+    margin: 15px 20px 10px;
+    padding-bottom: 8px;
+  }
 }
 
 .call-notes-container {

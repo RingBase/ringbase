@@ -37,7 +37,10 @@
 <div class="row">
   <div class="col-md-12">
     <div class="call-notes-container">
-      <!-- TODO: probably will want to change this for Google-docs style display -->
+      <p class="msg" ng-hide="haveMessages()">
+        <span class="msg-body" style="color: #707070">No notes have been added yet! Use the text field below to add a note about this call.</span>
+      </p>
+
       <div ng-repeat="note in notes_list track by $index">
         <p class="msg">
           <span class="msg-from">{{note[2]}}</span>

@@ -46,6 +46,9 @@
     }
     $scope.note = ""
 
+  $scope.haveMessages = ->
+    $scope.notes_list.length > 0
+
   $scope.$watch 'total', ->
     console.log($scope.total)
 
