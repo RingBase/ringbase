@@ -5,7 +5,7 @@
   $scope.current_organization = $window.current_organization
   $scope.calls = {} # id -> call attrs
   $scope.inProgressCalls = {} # this will hold all the calls that are in progress
-  
+
   Agent.getAllAgents().then (agents) -> $scope.all_agents = agents
 
   $scope.getInProgressCalls = ->
@@ -13,7 +13,7 @@
         if call[call.id].answered == true
           $scope.inProgressCalls[call.id] = call
           $scope.$apply()
-  
+
 
   $scope.send = (event) ->
     $rootScope.communicator.send(event)

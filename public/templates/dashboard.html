@@ -43,15 +43,15 @@
     <table class="table table-striped calls-table">
       <tr class="table-header">
         <th>Name</th>
-        <th>Location</th>
+        <th>State</th>
         <th>Phone Number</th>
         <th>Actions</th>
       </tr>
 
       <tr ng-repeat="(id,call) in calls">
-        <td>{{ call.name }}</td>
-        <td>{{ call.city }}</td>
-        <td>{{ call.number }}</td>
+        <td>{{ call.caller_name }}</td>
+        <td>{{ call.state }}</td>
+        <td>{{ call.calling_national_number }}</td>
 
         <td>
           <a ng-click="accept_call(call)" ng-hide="call.answered" class="answer-call">
