@@ -4,7 +4,7 @@ ActionMailer::Base.delivery_method = :test
 
 
 org = Organization.create!(name: "Best Travel Agency")
-org.campaigns.create!(title: org.name, pilot_number: "555-123-4567")
+org.campaigns.create!(title: org.name, pilot_number: "5551234567")
 
 
 [
