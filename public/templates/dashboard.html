@@ -5,66 +5,37 @@
 </div>
 
 
-<div class="row">
-  <div class="col-md-12">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#/dashboard">Incoming</a></li>
-      <li><a href="#/dashboard">In Progress</a></li>
-      <li><a href="#/dashboard">Completed</a></li>
-    </ul>
-  </div>
-</div>
-
-
-<!-- filters -->
-<div class="row top-buffer">
-  <div class="col-md-2">Filter By:</div>
-
-  <div class="col-md-3 btn-group">
-    <button type="button" class="btn">Select City</button>
-    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <li>
-        <a ng-click="selectedCity='Select City'">All Cities</a>
-      </li>
-      <li selected ng-repeat="(id,call) in calls">
-        <a ng-click="setSelectedCity(call.city)">{{call.city}}</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-md-3 btn-group">
-    <button type="button" class="btn">Agent Name</button>
-    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-      <span class="caret"></span>
-    </button>
-
-    <ul class="dropdown-menu" role="menu">
-      <li><a href="#/dashboard">Nivedh Mohinder</a></li>
-    </ul>
-  </div>
-</div>
-
 <!-- table of calls -->
-<div class="row top-buffer">
+<div class="row">
   <div class="col-md-12">
 
     <table class="table table-striped calls-table">
-      <tr class="table-header">
-        <th>Name</th>
-        <th>Location</th>
-        <th>Phone Number</th>
-        <th>Actions</th>
+      <tr class="table-header"> 
+        <div class="col-md-3 btn btn-default">Name</div>
+        <div class="col-md-3 container btn-group" id ="filter">
+          <div id="locationDropdown"  class="col-md-12 btn dropdown-toggle" data-toggle="dropdown"> 
+              Location <span class="caret"></span>
+          </div>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a ng-click="selectedCity='Select City'">All Cities</a>
+            </li>
+            <li selected ng-repeat="(id,call) in calls">
+              <a ng-click="setSelectedCity(call.city)">{{call.city}}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 btn btn-default">Phone Number</div>
+        <div class="col-md-3 btn btn-default">Actions</div>
       </tr>
 
       <tr ng-repeat="(id,call) in calls | locationFilter:this">
-        <td>{{ call.name }}</td>
-        <td>{{ call.city }}</td>
-        <td>{{ call.number }}</td>
+        <td class="col-md-3">{{ call.name }}</td>
+        <td class="col-md-3">{{ call.city }}</td>
+        <td class="col-md-3">{{ call.number }}</td>
 
-        <td>
+        <td class="col-md-3">
           <a ng-click="accept_call(call)" ng-hide="call.answered" class="answer-call">
             <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span>
             Answer

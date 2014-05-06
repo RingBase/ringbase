@@ -134,6 +134,23 @@ body {
   }
 }
 
+.caret {
+  visibility: hidden;
+  float:right;
+  margin-top:8px;
+}
+#filter{
+  padding-left: 0;
+  padding-right:0;
+}
+#locationDropdown {
+  &:hover { 
+    background-color: #E0DCDC;
+    .caret {
+        visibility: visible;
+    }
+  }
+}
 
 .calls-table {
   font-size: 0.9em;
