@@ -13,6 +13,10 @@
 
   <%= render 'shared/header' %>
 
+  <div class="alert alert-danger connection-error-container">
+    An error occurred while connecting to Ringbase!
+  </div>
+
   <%= yield(:before_container) %>
 
   <% container_class = (!signed_in? && current_page?(root_path)) ? '' : 'container' %>

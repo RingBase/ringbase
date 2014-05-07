@@ -22,7 +22,9 @@
       json = JSON.parse(socket_data.data)
       $rootScope.$broadcast("handle_#{json.type}", json.data)
 
-    conn.onerror = (err) -> # TODO: errback?
+    conn.onerror = (err) ->
+      # TODO: hack, not sure how to to best do this the Angular way
+      document.querySelector(".connection-error-container").style.display = 'block'
 
     service.conn = conn
 
