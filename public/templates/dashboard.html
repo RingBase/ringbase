@@ -1,19 +1,17 @@
-<div class="row">
-  <div class="col-md-12">
-    <h1 class="organization-name">{{current_organization.name}}</h1>
-  </div>
-</div>
 
 
 <!-- table of calls -->
 <div class="row">
+<div class="col-md-12" id="incoming-header"> INCOMING CALLS </div>
+</div>
+<div class="row">
   <div class="col-md-12">
-
-    <table class="table table-striped calls-table">
+    <table class="table calls-header">
       <tr class="table-header"> 
+        <div class="col-md-3 btn btn-default">Actions</div>
         <div class="col-md-3 btn btn-default">Name</div>
         <div class="col-md-3 container btn-group" id ="filter">
-          <div id="locationDropdown"  class="col-md-12 btn dropdown-toggle" data-toggle="dropdown"> 
+          <div id="locationDropdown"  class="col-md-12 btn dropdown-toggle" data-toggle="dropdown">
               Location <span class="caret"></span>
           </div>
           <ul class="dropdown-menu" role="menu">
@@ -27,24 +25,66 @@
         </div>
 
         <div class="col-md-3 btn btn-default">Phone Number</div>
-        <div class="col-md-3 btn btn-default">Actions</div>
-      </tr>
-
-      <tr ng-repeat="(id,call) in calls | locationFilter:this">
-        <td class="col-md-3">{{ call.name }}</td>
-        <td class="col-md-3">{{ call.city }}</td>
-        <td class="col-md-3">{{ call.number }}</td>
-
-        <td class="col-md-3">
-          <a ng-click="accept_call(call)" ng-hide="call.answered" class="answer-call">
-            <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span>
-            Answer
-          </a>
-          <div class="spinner" ng-show="call.answered"></div>
-        </td>
-
       </tr>
     </table>
-
+    <div class="calls-body">
+      <table class="table table-striped">
+        <tr ng-repeat="(id,call) in calls | locationFilter:this">
+          <td class="col-md-3">
+            <a ng-click="accept_call(call)" ng-hide="call.answered" class="answer-call">
+              <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span>
+              Answer
+            </a>
+            <div class="spinner" ng-show="call.answered"></div>
+          </td>
+          <td class="col-md-3">{{ call.name }}</td>
+          <td class="col-md-3">{{ call.city }}</td>
+          <td class="col-md-3">{{ call.number }}</td>
+       
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
+
+
+
+
+<div class="row">
+<div class="col-md-12" id="answered-header"> ANSWERED </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table calls-header">
+      <tr class="table-header">
+        <div class="col-md-1 btn btn-default">Status</div>
+        <div class="col-md-2 btn btn-default">Name</div>
+        <div class="col-md-3 container btn-group" id ="filter">
+          <div id="locationDropdown"  class="col-md-12 btn dropdown-toggle" data-toggle="dropdown">
+              Location <span class="caret"></span>
+          </div>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a ng-click="selectedCity='Select City'">All Cities</a>
+            </li>
+            <li selected ng-repeat="(id,call) in calls">
+              <a ng-click="setSelectedCity(call.city)">{{call.city}}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 btn btn-default">Phone Number</div>
+        <div class="col-md-3 btn btn-default">Agent</div>
+        <div class="col-md-1 btn btn-default">Amount</div>
+      </tr>
+    </table>
+    <div class="calls-body">
+      <table class="table table-striped">
+          <!-- future content goes here -->
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
