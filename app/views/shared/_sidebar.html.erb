@@ -1,12 +1,32 @@
-<div class="col-md-3 sidebar-container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <%= avatar_for(current_user) %>
-      <%= current_user.full_name %>
-    </div>
-    <ul class="nav nav-sidebar">
-      <li><a href="/#/dashboard">Dashboard</a></li>
-      <li><a href="/#/settings">Settings</a></li>
-    </ul>
-  </div><!-- .panel-default -->
-</div><!-- .sidebar-container -->
+  <div class="sidebar-container">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= avatar_for(current_user) %>
+
+        <div class="sidebar-agent-info-container">
+          <p><%= current_user.full_name %></p>
+
+          <div class="status-switch-container">
+            <div class="status-switch">
+              <input type="checkbox" class="status-switch-checkbox" id="agent-status-switch" checked>
+              <label class="status-switch-label" for="agent-status-switch">
+                <div class="status-switch-inner"></div>
+                <div class="status-switch-switch"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <ul class="nav nav-sidebar">
+        <li><a href="/#/dashboard"><i class="glyphicon glyphicon-home"></i>Dashboard</a></li>
+        <li><a href="/#/settings"><i class="glyphicon glyphicon-cog"></i>Settings</a></li>
+      </ul>
+    </div><!-- .panel-default -->
+
+  </div>

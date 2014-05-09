@@ -24,7 +24,11 @@
 
     conn.onerror = (err) ->
       # TODO: hack, not sure how to to best do this the Angular way
-      document.querySelector(".connection-error-container").style.display = 'block'
+      errContainer = document.querySelector(".connection-error-container")
+      if errContainer?
+        errContainer.style.display = 'block'
+      else
+        console.log("no err container QS?")
 
     service.conn = conn
 

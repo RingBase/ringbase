@@ -2,11 +2,17 @@
 
 .navbar { margin-bottom: 0; }
 
-.form-control {
-  @include border-radius;
-
-  //&:focus { box-shadow: none; }
+.navbar-inverse {
+  background-color: $blue;
+  padding: 10px 0;
 }
+
+
+.nav-tabs > li.active > a { border-bottom: 1px solid #ddd; }
+.nav-tabs { border-bottom: 0; }
+
+
+.form-control { @include border-radius; }
 
 label { font-size: 1em; }
 
@@ -27,15 +33,15 @@ label { font-size: 1em; }
 }
 
 
+.btn-group-light .btn {
+  background-color: lighten($med-gray, 7) !important;
+}
+
 .alert {
   @include border-radius;
 
   ul { padding-left: 10px; }
 }
 
-
 .modal-content { @include border-radius; }
 
-.btn-group-light .btn {
-  background-color: lighten($med-gray, 7) !important;
-}

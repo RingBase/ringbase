@@ -9,32 +9,35 @@
 
 <%# TODO: hack for demo %>
 <% body_bg_color = current_page?(login_path) ? '#f6f6f6' : '#fff' %>
-<body style="background-color: <%= body_bg_color %>">
+<body style="xbackground-color: <%= body_bg_color %>">
+  <div class="page-wrap">
 
-  <%= render 'shared/header' %>
+    <%= render 'shared/header' %>
 
-  <div class="alert alert-danger connection-error-container">
-    An error occurred while connecting to Ringbase!
+    <div class="alert alert-danger connection-error-container">
+      An error occurred while connecting to Ringbase!
+    </div>
+
+    <%= yield(:before_container) %>
+
+    <% container_class = (!signed_in? && current_page?(root_path)) ? '' : 'xcontainer' %>
+    <div class="<%= container_class %> app-content-container">
+      <% if signed_in? %>
+
+          <%= render 'shared/sidebar' %>
+
+          <div class="main-content">
+            <div class="main-content-inner">
+              <div ng-view></div>
+            </div>
+          </div>
+
+      <% else %>
+        <%= yield %>
+      <% end %>
+    </div><!-- .container -->
+
   </div>
-
-  <%= yield(:before_container) %>
-
-  <% container_class = (!signed_in? && current_page?(root_path)) ? '' : 'container' %>
-  <div class="<%= container_class %>">
-    <% if signed_in? %>
-      <div class="row">
-
-        <%= render 'shared/notification_bar' %>
-        <%= render 'shared/sidebar' %>
-
-        <div class="col-md-9 main-content">
-          <div ng-view></div>
-        </div>
-      </div>
-    <% else %>
-      <%= yield %>
-    <% end %>
-  </div><!-- .container -->
 
 
   <% if signed_in? %>

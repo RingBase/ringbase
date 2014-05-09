@@ -9,8 +9,12 @@
 @import 'landing';
 @import 'calls';
 
+html, body { height: 100%; }
+
+html { overflow-y: scroll; }
+
 body {
-  background-color: white;
+  background-color: #F2F2F2;
   color: $gray-text;
 
   & > .container {
@@ -19,13 +23,123 @@ body {
   }
 }
 
-.main-content {
-  border: 1px solid $med-gray;
+.page-wrap {
+  @include clearfix;
+  min-height: 100%;
 
-  .organization-name { margin-bottom: 20px; }
+  &:after {
+    content: "";
+    display: block;
+  }
 }
 
-.top-buffer { margin-top: 20px; }
+.container { @include mobile { padding: 0; } }
+
+.app-content-container { @include clearfix; }
+
+
+.sidebar-container,
+.main-content {
+  float: left;
+  min-height: 100% !important;
+
+  @include mobile {
+    float: none !important;
+    width: 100% !important;
+    min-height: 0 !important;
+  }
+}
+
+
+.sidebar-container {
+  background-color: $sidebar-bg-color;
+  border-bottom-left-radius: 5px;
+  width: 15%;
+
+  $sidebar-link-border-color: lighten($sidebar-bg-color, 20);
+
+  .nav > li > a {
+    background-color: $sidebar-bg-color;
+    border-bottom: 1px solid $sidebar-link-border-color;
+    color: #f9f9f9;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 15px;
+
+    i { margin-right: 15px; }
+
+    &:hover { background-color: darken($sidebar-bg-color, 5); }
+  }
+  .nav > li:first-child a { border-top: 1px solid $sidebar-link-border-color; }
+
+  .panel-heading {
+    @include clearfix;
+    background-color: $sidebar-bg-color;
+    border: 0;
+    color: white;
+    padding: 20px 15px 25px;
+
+    .sidebar-agent-info-container {
+      margin: 5px 0 0 15px;
+      float: left;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 0 0 5px 0;
+      padding: 0;
+    }
+
+    .avatar { float: left; }
+
+    .status-switch-container {
+      clear: left;
+      float: left;
+      margin-top: 8px;
+    }
+  }
+
+  .panel-default { border: 0; }
+
+  @include mobile {
+    border-left: 0;
+
+    .panel { margin-bottom: 0; }
+  }
+}
+
+
+.main-content {
+  background: none;
+  border-bottom-right-radius: 5px;
+  padding: 20px;
+  width: 85%;
+
+  .main-content-inner {
+    @include border-radius;
+    background-color: white;
+    border: 1px solid $med-gray;
+    padding: 15px;
+  }
+}
+
+
+.top-buffer { margin-top: 25px; }
+
+
+.spinner {
+  background: url('/assets/loading.gif');
+  background-size: cover;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+
+
+.connection-error-container {
+  display: none;
+  font-size: 1.1em;
+  text-align: center;
+}
 
 
 .whitebox {
@@ -91,51 +205,6 @@ body {
 }
 
 
-.notification-bar-container {
-  display: none;
-  margin-bottom: 20px;
-
-  @include mobile { display: block; }
-}
-
-.notification-bar {
-  @include border-box;
-  @include clearfix;
-  background-color: #404040;
-  color: white;
-  padding: 10px;
-
-  .agent-info-container { padding-top: 5px; }
-
-  .avatar, .agent-name { float: left; }
-
-  .avatar { margin-right: 15px; }
-
-  .agent-name { font-size: 1.1em; }
-
-  .status-switch-container {
-    clear: left;
-    float: left;
-    margin-top: 8px;
-  }
-
-  .incoming-call-container { text-align: center; }
-
-  .incoming-call-icon {
-    color: lighten(green, 5);
-    display: block;
-    margin: 0 auto 5px;
-    font-size: 2.7em;
-    margin-top: 5px;
-  }
-
-  .incoming-call-label {
-    font-size: 0.8em;
-    text-align: center;
-  }
-}
-
-
 .calls-table {
   font-size: 0.9em;
   margin-top: 5px;
@@ -143,29 +212,4 @@ body {
 
 .answer-call {
   &:hover { cursor: pointer; }
-}
-
-
-.sidebar-container {
-  .avatar { border: 1px solid #ddd; }
-
-  @media(max-width: 768px) {
-    .panel-heading { display: none; }
-  }
-}
-
-
-.spinner {
-  background: url('/assets/loading.gif');
-  background-size: cover;
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-}
-
-
-.connection-error-container {
-  display: none;
-  font-size: 1.1em;
-  text-align: center;
 }

@@ -36,6 +36,11 @@
     }
 
 
+  $scope.parseStartTime = (call) ->
+    console.log "sorting"
+    Date.parse(call.start_time)
+
+
   # Event handlers
   # -------------------------
 
@@ -58,9 +63,6 @@
 
 
   $rootScope.$on 'handle_call_list', (evt, json) ->
-    console.log json
     for call in json.calls
-      console.log call
       $scope.calls[call.id] = call
     $scope.$apply()
-

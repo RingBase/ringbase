@@ -1,36 +1,46 @@
-<div class="row">
+<jdiv class="row xtop-buffer">
   <div class="col-md-12">
-    <h1 class="organization-name">{{current_organization.name}}</h1>
+
+      <div class="organization-name-container">
+        <h1 class="organization-name">{{current_organization.name}}</h1>
+      </div>
+
   </div>
 </div>
 
 
-<div class="row">
+<div class="row top-buffer">
   <div class="col-md-12">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#/dashboard">Incoming</a></li>
-      <li><a href="#/inProgress" ng-click="getInProgressCalls()">In Progress</a></li>
-      <li><a href="#/completed">Completed</a></li>
-    </ul>
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#/dashboard">Incoming</a></li>
+        <li><a href="#/inProgress" ng-click="getInProgressCalls()">In Progress</a></li>
+        <li><a href="#/completed">Completed</a></li>
+      </ul>
+
   </div>
 </div>
 
 
 <!-- filters -->
 <div class="row top-buffer">
-  <div class="col-md-2">Filter By:</div>
+  <div class="col-md-12">
 
-  <div class="col-md-3 btn-group btn-group-light">
-    <button type="button" class="btn">Location</button>
-    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <li><a href="#/dashboard">Santa Barbara</a></li>
-    </ul>
-  </div>
+      <div class="row">
+        <div class="col-md-2">Filter By:</div>
 
-  <div class="col-md-3 btn-group btn-group-light">
+        <div class="col-md-3 btn-group btn-group-light">
+          <button type="button" class="btn">Location</button>
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#/dashboard">Santa Barbara</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 btn-group btn-group-light"></div>
+      </div>
 
   </div>
 </div>
@@ -40,32 +50,27 @@
 <div class="row top-buffer">
   <div class="col-md-12">
 
-    <table class="table table-striped calls-table">
-      <tr class="table-header">
-        <th>Name</th>
-        <th>State</th>
-        <th>Phone Number</th>
-        <th>Actions</th>
-      </tr>
+      <table class="table table-striped calls-table">
+        <tr class="table-header">
+          <th>Name</th>
+          <th>State</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
 
-      <tr ng-repeat="(id,call) in calls">
-        <td>{{ call.caller_name }}</td>
-        <td>{{ call.state }}</td>
-        <td>{{ call.calling_national_number }}</td>
+        <tr ng-repeat="call in calls | orderBy:parseStartTime">
+          <td>{{ call.caller_name }}</td>
+          <td>{{ call.state }}</td>
+          <td>{{ call.calling_national_number }}</td>
 
-        <td>
-          <a ng-click="accept_call(call)" ng-hide="call.answered" class="answer-call">
-            <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span>
-            Answer
-          </a>
-          <div class="spinner" ng-show="call.answered"></div>
-        </td>
-
-        <td>
-
-
-      </tr>
-    </table>
+          <td>
+            <a ng-click="accept_call(call)" ng-hide="call.answered" class="answer-call">
+              <span class="glyphicon glyphicon-earphone" style="margin-right: 5px;"></span> Answer
+            </a>
+            <div class="spinner" ng-show="call.answered"></div>
+          </td>
+        </tr>
+      </table>
 
   </div>
 </div>

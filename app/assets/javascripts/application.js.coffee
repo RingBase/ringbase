@@ -11,3 +11,7 @@
 #= require ui-bootstrap-tpls-0.10.0.min
 
 #= require angular/main
+
+
+# TODO: hack
+document.querySelector('.app-content-container').style.height = "#{window.outerHeight}px"
