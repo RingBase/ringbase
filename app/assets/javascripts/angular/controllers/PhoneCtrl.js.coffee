@@ -45,6 +45,10 @@
     $scope.calls[call.id] = call
     $scope.$apply()
 
+  $rootScope.$on 'handle_call_stop', (evt, call) ->
+    console.log("call stopped")
+    $scope.calls[call.id] = call
+    $scope.$apply()
 
   # TODO: check if we're an interested listener here?
   $rootScope.$on 'handle_call_accepted', (evt, call) ->
@@ -54,7 +58,9 @@
 
 
   $rootScope.$on 'handle_call_list', (evt, json) ->
+    console.log json
     for call in json.calls
+      console.log call
       $scope.calls[call.id] = call
     $scope.$apply()
 
