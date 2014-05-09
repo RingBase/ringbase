@@ -15,8 +15,19 @@
           $scope.$apply()
 
 
+  $scope.selectedCity = "Select City"
+
+  $scope.setSelectedCity = (city) ->
+    $scope.selectedCity = city
+
+
+
+    Agent.getAllAgents().then (agents) ->
+    $scope.all_agents = agents
+
   $scope.send = (event) ->
     $rootScope.communicator.send(event)
+
 
   # Load calls as soon as we're connected
   $rootScope.communicator.on_connect ->
@@ -27,17 +38,17 @@
       org_pilot_number: pilot_number
     }
 
+
   $scope.accept_call = (call) ->
     $scope.calls[call.id].answered = true
     $scope.send {
-     type: 'bridge_to',
-     agent: $scope.current_user,
-     call: call
+      type: 'bridge_to',
+      agent: $scope.current_user,
+      call: call
     }
 
 
   $scope.parseStartTime = (call) ->
-    console.log "sorting"
     Date.parse(call.start_time)
 
 
@@ -66,3 +77,15 @@
     for call in json.calls
       $scope.calls[call.id] = call
     $scope.$apply()
+
+
+@RingBase.filter "locationFilter", ->
+ (input, scope) ->
+   filterCalls = []
+   if scope.selectedCity == "Select City"
+     input
+   else
+     for id,call of input
+       if scope.selectedCity == call.city
+         filterCalls.push call
+     filterCalls

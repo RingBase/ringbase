@@ -210,6 +210,42 @@ body {
   margin-top: 5px;
 }
 
+.caret {
+  visibility: hidden;
+  float: right;
+  margin-top: 8px;
+}
+
+#filter {}
+
+#locationDropdown {
+  &:hover {
+    .caret { visibility: visible; }
+  }
+}
+
+#answered-header {
+  color: #686F68;
+  margin-bottom:5px;
+  margin-top:30px;
+}
+
+#incoming-header {
+  color: rgb(63, 163, 50);
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+.calls-header { margin-bottom: 0px;  }
+
+.calls-body {
+  height: 300px !important;
+  overflow-y: scroll;
+  border-right: 1px solid $med-gray;
+  border-bottom: 1px solid $med-gray;
+  border-left: 1px solid $med-gray;
+}
+
 .answer-call {
   &:hover { cursor: pointer; }
 }
