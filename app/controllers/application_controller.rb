@@ -27,7 +27,9 @@ class ApplicationController < ActionController::Base
   end
 
   def current_organization
-    @current_organization = Organization.find_by_id(current_user.organization_id)
+    if signed_in?
+      @current_organization = Organization.find_by_id(current_user.organization_id)
+    end
   end
 
   def signed_in?
