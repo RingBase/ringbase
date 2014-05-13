@@ -21,8 +21,7 @@
     $scope.selectedCity = city
 
 
-
-    Agent.getAllAgents().then (agents) ->
+  Agent.getAllAgents().then (agents) ->
     $scope.all_agents = agents
 
   $scope.send = (event) ->
