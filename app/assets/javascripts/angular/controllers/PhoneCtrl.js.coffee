@@ -71,10 +71,10 @@
 
 
   # TODO: check if we're an interested listener here?
-  $rootScope.$on 'handle_call_accepted', (evt, call) ->
+  $rootScope.$on 'handle_call_bridged', (evt, call) ->
     console.log "call accepted! redirect"
     $scope.$apply ->
-      view_call(call)
+      $scope.view_call(call)
 
 
   $rootScope.$on 'handle_call_list', (evt, json) ->
