@@ -24,7 +24,7 @@
     <tr class="table-header">
       <div class="col-md-2 btn btn-default">Actions</div>
       <div class="col-md-2 btn btn-default">Started</div>
-      <div class="col-md-2 btn btn-default">Name</div>
+      <div class="col-md-2 btn btn-default">Region</div>
       <div class="col-md-2 btn btn-default" id="filter">
         <div id="locationDropdown" class="dropdown-toggle" data-toggle="dropdown">
             Location <span class="caret"></span>
@@ -36,7 +36,7 @@
         </ul>
       </div><!-- #filter -->
 
-      <div class="col-md-4 btn btn-default">Phone Number</div>
+      <div class="col-md-4 btn btn-default">Caller Number</div>
     </tr>
   </table>
 
@@ -52,8 +52,8 @@
         </td>
 
         <td class="col-md-2">{{ formatDate(call.start_time) }}</td>
-        <td class="col-md-2">{{ call.caller_name }}</td>
-        <td class="col-md-2">{{ call.city }}</td>
+        <td class="col-md-2">{{ call.caller_region }}</td>
+        <td class="col-md-2">{{ call.caller_city }}</td>
         <td class="col-md-4">{{ call.calling_national_number }}</td>
       </tr>
     </table>
@@ -83,7 +83,7 @@
       <tr class="table-header">
         <div class="col-md-2 btn btn-default">Actions</div>
         <div class="col-md-2 btn btn-default">Started</div>
-        <div class="col-md-2 btn btn-default">Name</div>
+        <div class="col-md-2 btn btn-default">Region</div>
         <div class="col-md-2 btn btn-default" id="filter">
           <div id="locationDropdown"  class="dropdown-toggle" data-toggle="dropdown">
             Location <span class="caret"></span>
@@ -96,7 +96,7 @@
         </div><!-- #filter -->
 
 
-        <div class="col-md-4 btn btn-default">Phone Number</div>
+        <div class="col-md-4 btn btn-default">Caller Number</div>
 
       </tr>
     </table>
@@ -112,8 +112,8 @@
         </td>
 
         <td class="col-md-2">{{ formatDate(call.start_time) }}</td>
-        <td class="col-md-2">{{ call.caller_name }}</td>
-        <td class="col-md-2">{{ call.city }}</td>
+        <td class="col-md-2">{{ call.caller_region }}</td>
+        <td class="col-md-2">{{ call.caller_city }}</td>
         <td class="col-md-4">{{ call.calling_national_number }}</td>
       </tr>
     </table>
