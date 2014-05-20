@@ -47,7 +47,6 @@
       agent: $scope.current_user,
       call: call
     }
-    $scope.view_call(call)
 
 
   $scope.view_call = (call) ->
@@ -75,7 +74,7 @@
   $rootScope.$on 'handle_call_accepted', (evt, call) ->
     console.log "call accepted! redirect"
     $scope.$apply ->
-      $location.path("/call/#{call.id}/#{call.number}")
+      view_call(call)
 
 
   $rootScope.$on 'handle_call_list', (evt, json) ->
