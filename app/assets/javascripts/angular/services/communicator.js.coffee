@@ -18,9 +18,11 @@
       conn.send(JSON.stringify({ "agent_id": agent_id, "type": "login" }))
       service.connect_callback() if service.connect_callback?
 
+
     conn.onmessage = (socket_data) ->
       json = JSON.parse(socket_data.data)
       $rootScope.$broadcast("handle_#{json.type}", json.data)
+
 
     conn.onerror = (err) ->
       # TODO: hack, not sure how to to best do this the Angular way
@@ -31,6 +33,7 @@
         console.log("no err container QS?")
 
     service.conn = conn
+
 
   service.on_connect = (fn) ->
     if service.conn.readyState != 1 # Not ready
@@ -44,8 +47,6 @@
   # json - An arbitrary Object that will be serialized to a JSON string
   #
   # Returns nothing
-  #
-  # TODO: can we tag json with current agent id here? How to access?
   service.send = (json) ->
     service.conn.send(JSON.stringify(json))
 

@@ -21,7 +21,6 @@
   .when("/inProgress",
     templateUrl: "templates/in-progress.html"
     controller: "PhoneCtrl"
-    
   )
   .when("/completed",
     templateUrl: "templates/completed.html"
@@ -30,6 +29,10 @@
   .when("/call/:callId/:phoneNumber",
     templateUrl: "templates/call.html"
     controller: "CallCtrl"
+  )
+  .when("/events",
+    templateUrl: "templates/events.html"
+    controller: "EventCtrl"
   )
   .otherwise({
     templateUrl: "templates/home.html",

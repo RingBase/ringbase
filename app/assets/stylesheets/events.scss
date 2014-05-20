@@ -1,0 +1,36 @@
+.animation-container {
+  position: relative;
+  padding: 20px;
+}
+
+.node-box {
+  border: 2px solid #000;
+  float: left;
+  font-size: 1.2em;
+  padding: 60px 70px;
+
+  &.node-active {
+    background-color: rgb(54, 147, 224);
+    color: white;
+  }
+}
+
+
+.node-link {
+  border-top: 4px solid #000;
+  position: relative;
+  float: left;
+  height: 0;
+  width: 175px;
+  top: 70px;
+
+  &.node-active { border-color: rgb(54, 147, 224); }
+}
+
+
+.node-browser {}
+.node-browser-broker {}
+.node-broker {}
+.node-broker-invoca {}
+.node-invoca {}
+
