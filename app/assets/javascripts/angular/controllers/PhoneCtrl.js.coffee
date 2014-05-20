@@ -5,7 +5,7 @@
   $scope.current_organization = $window.current_organization
   $scope.uniqueCities = []
   $scope.calls = []
-  $scope.inProgressCalls = {} # this will hold all the calls that are in progress
+  $scope.inProgressCalls = [] # this will hold all the calls that are in progress
 
   Agent.getAllAgents().then (agents) ->
     $scope.all_agents = agents
@@ -26,13 +26,10 @@
 
 
   $scope.selectedCity = "Select City"
-
-  $scope.setSelectedCity = (city) ->
-    $scope.selectedCity = city
+  $scope.setSelectedCity = (city) -> $scope.selectedCity = city
 
 
-  $scope.send = (event) ->
-    $rootScope.communicator.send(event)
+  $scope.send = (event) -> $rootScope.communicator.send(event)
 
 
   $scope.formatDate = (time) ->
@@ -50,10 +47,11 @@
       agent: $scope.current_user,
       call: call
     }
+    $scope.view_call(call)
 
 
   $scope.view_call = (call) ->
-    $location.path("/call/#{call.call_uuid}/#{call.calling_national_number}")
+    $location.path("/call/#{call.id}/#{call.calling_national_number}")
 
 
   # Event handlers
@@ -62,7 +60,8 @@
   $rootScope.$on 'handle_call_start', (evt, call) ->
     console.log("call started!")
     call.answered = false
-    $scope.calls.push(call)
+    # TODO: flash new call
+    $scope.calls.unshift(call) # Add to beginning
     $scope.$apply()
 
 
