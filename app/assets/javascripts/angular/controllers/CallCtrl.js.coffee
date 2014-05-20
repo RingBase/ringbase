@@ -33,7 +33,8 @@
       controller: 'ModalInstanceCtrl'
     }
 
-  $scope.send = ->
+  $scope.update_notes = ->
+    console.log "update notes"
     current_user = $scope.current_user
 
     $scope.notes_list.push([$scope.note, current_time(), current_user.full_name])
@@ -71,5 +72,7 @@
 
   $rootScope.$on 'handle_notes_updated', (evt, data) ->
     console.log "notes updated, got data: ", data
-    if data.call_id == $routeParams.callId
-      $scope.notes_list.push([data.note, current_time(), data.user_name])
+    #if data.call_id == $routeParams.callId
+    # TODO: sync $ amount
+    $scope.notes_list.push([data.note, current_time(), data.user_name])
+    $scope.$apply()

@@ -14,8 +14,8 @@
     <div class="col-md-3 call-info">
       <span class="call-info-label">Total:</span>
       <span class="call-payout-container">
-        <span>$</span>
-        <input type="text" class="form-control call-payout" ng-model="total"/>
+        $
+        <input type="text" class="call-payout" ng-model="total"/>
       </span>
     </div>
 
@@ -37,10 +37,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="call-notes-container">
-      <p class="msg" ng-hide="haveMessages()">
-        <span class="msg-body" style="color: #707070">No notes have been added yet! Use the text field below to add a note about this call.</span>
-      </p>
-
+      <!-- TODO: probably will want to change this for Google-docs style display -->
       <div ng-repeat="note in notes_list track by $index">
         <p class="msg">
           <span class="msg-from">{{note[2]}}</span>
@@ -58,7 +55,7 @@
 
     <div class="notes-input">
       <textarea class="form-control" ng-model="note"></textarea>
-      <button class="btn btn-primary btn-sm btn-send" ng-click="send()">Send</button>
+      <button class="btn btn-primary btn-sm btn-send" ng-click="update_notes()">Send</button>
     </div><!-- .notes-input -->
 
   </div>
