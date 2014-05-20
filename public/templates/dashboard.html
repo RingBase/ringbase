@@ -32,7 +32,7 @@
 
         <ul class="dropdown-menu" role="menu">
           <li><a ng-click="selectedCity='Select City'">All Cities</a></li>
-          <li selected ng-repeat="(id,call) in calls"><a ng-click="setSelectedCity(call.city)">{{call.city}}</a></li>
+          <li selected ng-repeat="city in uniqueCities"><a ng-click="setSelectedCity(city)">{{city}}</a></li>
         </ul>
       </div><!-- #filter -->
 
@@ -91,7 +91,7 @@
 
           <ul class="dropdown-menu" role="menu">
             <li><a ng-click="selectedCity='Select City'">All Cities</a></li>
-            <li selected ng-repeat="(id,call) in calls"><a ng-click="setSelectedCity(call.city)">{{call.city}}</a></li>
+            <li selected ng-repeat="(id,call) in calls"><a ng-click="setSelectedCity(call.caller_city)">{{call.caller_city}}</a></li>
           </ul>
         </div><!-- #filter -->
 

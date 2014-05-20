@@ -3,6 +3,7 @@
 @RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, $timeout, Agent) ->
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
+  $scope.uniqueCities = []
   $scope.calls = []
   $scope.inProgressCalls = {} # this will hold all the calls that are in progress
 
@@ -82,6 +83,9 @@
     unanswered_calls = []
     answered_calls = []
     for call in json.calls
+      if $scope.uniqueCities.indexOf(call.caller_city) < 0
+        $scope.uniqueCities.push(call.caller_city)
+
       if call.state == 'bridged'
         answered_calls.push(call)
       else
@@ -104,6 +108,6 @@
      input
    else
      for id,call of input
-       if scope.selectedCity == call.city
+       if scope.selectedCity == call.caller_city
          filterCalls.push(call)
      filterCalls
