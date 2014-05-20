@@ -74,7 +74,8 @@
   $rootScope.$on 'handle_call_bridged', (evt, call) ->
     console.log "call accepted! redirect"
     $scope.$apply ->
-      $scope.view_call(call)
+      if $window.current_user.id != 1 # looool
+        $scope.view_call(call)
 
 
   $rootScope.$on 'handle_call_list', (evt, json) ->
