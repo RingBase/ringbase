@@ -6,7 +6,8 @@
 
   <div class="modal-body" ng-hide="transferred">
     <div ng-repeat="agent in all_agents" class="agent-container">
-      <input type="radio" name="radioGroup" id="radioGroup{{agent.id}}" ng-model="$parent.radioMod" value="{{agent.id}}"/>
+      <input type="radio" name="radioGroup" id="radioGroup{{agent.id}}"
+        ng-model="$parent.radioMod" value="{{agent.id}}:{{agent.phone_number}}"/>
       <label for="radioGroup{{agent.id}}">
         <div class="agent">
           <img class="avatar" src="{{agent.avatar_url}}"/>

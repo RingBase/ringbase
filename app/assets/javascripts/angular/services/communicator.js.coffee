@@ -50,17 +50,4 @@
   service.send = (json) ->
     service.conn.send(JSON.stringify(json))
 
-
-  # Send a call transfer request to the broker
-  #
-  # agent_id - A Number agent id to transfer the call to
-  # call - Object with keys
-  #     'test' - test
-  #
-  # Returns nothing
-  service.send_transfer_request = (agent_id, call_id) ->
-    console.log "Entered Communicator#send_transfer_request, agent_id: #{agent_id}, call_id: #{call_id}"
-    json = JSON.stringify({ type: "call_transfer_request", agent_id: agent_id, call_id: call_id })
-    service.conn.send(json)
-
   service
