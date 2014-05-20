@@ -4,7 +4,21 @@ ActionMailer::Base.delivery_method = :test
 
 
 org = Organization.create!(name: "Best Travel Agency")
-org.campaigns.create!(title: org.name, pilot_number: "5551234567") # TODO: number
+
+# CONTROLLED_NATIONAL_NUMBERS = [
+#   '8053945120',
+#   '8053945121',
+#   '8053945122',
+#   '8053945123',
+#   '8053945123',
+#   '8053945124',
+#   '8053945125',
+#   '8053945126',
+#   '8053945127',
+#   '8053945128',
+#   '8053945129'
+# ]
+org.campaigns.create!(title: org.name, pilot_number: "8053945120")
 
 
 [
