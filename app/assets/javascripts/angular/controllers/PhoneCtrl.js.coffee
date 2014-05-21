@@ -85,10 +85,10 @@
       if $scope.uniqueCities.indexOf(call.caller_city) < 0
         $scope.uniqueCities.push(call.caller_city)
 
-      if call.state == 'bridged'
-        answered_calls.push(call)
-      else
+      if call.state == 'parked'
         unanswered_calls.push(call)
+      else
+        answered_calls.push(call)
 
     $scope.calls = unanswered_calls.sort (a,b) ->
       # Most recent calls first
