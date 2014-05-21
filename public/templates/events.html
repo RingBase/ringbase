@@ -3,21 +3,38 @@
     <div class="col-md-12">
 
       <div class="animation-container">
-        <div class="node-box node-browser"
-             ng-class="(active_node=='node-browser') ? 'node-active' : ''">Browser</div>
 
-        <div class="node-link node-browser-broker"
-             ng-class="(active_node=='node-browser-broker') ? 'node-active' : ''"></div>
+          <div style="margin-left: 285px;">
+            <div style="overflow: auto;">
+              <div class="node-box node-cassandra"
+                ng-class="(active_node=='node-cassandra') ? 'node-active' : ''">Cassandra</div>
+            </div>
 
-        <div class="node-box node-broker"
-             ng-class="(active_node=='node-broker') ? 'node-active' : ''">Broker</div>
+            <div style="overflow: auto;">
+              <div class="node-link node-broker-cassandra"
+                ng-class="(active_node=='node-broker-cassandra') ? 'node-active' : ''"></div>
+            </div>
+          </div>
 
-        <div class="node-link node-broker-invoca"
-             ng-class="(active_node=='node-broker-invoca') ? 'node-active' : ''"></div>
 
-        <div class="node-box node-invoca"
-             ng-class="(active_node=='node-invoca') ? 'node-active' : ''">Invoca</div>
-      </div>
+          <div style="overflow: auto;">
+            <div class="node-box node-browser"
+              ng-class="(active_node=='node-browser') ? 'node-active' : ''">Browser</div>
+
+            <div class="node-link node-browser-broker"
+              ng-class="(active_node=='node-browser-broker') ? 'node-active' : ''"></div>
+
+            <div class="node-box node-broker"
+              ng-class="(active_node=='node-broker') ? 'node-active' : ''">Broker</div>
+
+            <div class="node-link node-broker-invoca"
+              ng-class="(active_node=='node-broker-invoca') ? 'node-active' : ''"></div>
+
+            <div class="node-box node-invoca"
+              ng-class="(active_node=='node-invoca') ? 'node-active' : ''">Invoca</div>
+          </div>
+
+       </div><!-- .animation-container -->
 
     </div>
   </div>

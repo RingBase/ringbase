@@ -7,7 +7,7 @@
   border: 2px solid #000;
   float: left;
   font-size: 1.2em;
-  padding: 60px 70px;
+  padding: 50px 60px;
 
   &.node-active {
     background-color: rgb(54, 147, 224);
@@ -21,12 +21,11 @@
   position: relative;
   float: left;
   height: 0;
-  width: 175px;
+  width: 160px;
   top: 70px;
 
   &.node-active { border-color: rgb(54, 147, 224); }
 }
-
 
 .node-browser {}
 .node-browser-broker {}
@@ -34,3 +33,16 @@
 .node-broker-invoca {}
 .node-invoca {}
 
+
+.node-cassandra {
+  margin-left: 90px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.node-broker-cassandra {
+  border-top: 0;
+  border-right: 4px solid #000;
+  height: 75px;
+  top: auto;
+}
