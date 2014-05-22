@@ -36,6 +36,14 @@ body {
 
 .container { @include mobile { padding: 0; } }
 
+.dropdown-menu {
+  li {
+    a:hover {
+      background-color: #008cba;
+    }
+  }
+}
+
 .app-content-container { @include clearfix; }
 
 
@@ -68,7 +76,7 @@ body {
 
     i { margin-right: 15px; }
 
-    &:hover { background-color: darken($sidebar-bg-color, 5); }
+    &:hover { background-color: red; }
   }
   .nav > li:first-child a { border-top: 1px solid $sidebar-link-border-color; }
 
@@ -213,18 +221,12 @@ body {
 }
 
 .caret {
-  visibility: hidden;
+  visibility: visible;
   float: right;
   margin-top: 8px;
 }
 
 #filter {}
-
-#locationDropdown {
-  &:hover {
-    .caret { visibility: visible; }
-  }
-}
 
 #answered-header,
 #incoming-header {
@@ -258,5 +260,5 @@ body {
 }
 
 .answer-call {
-  &:hover { cursor: pointer; }
+  &:hover { cursor: pointer; color: red; }
 }
