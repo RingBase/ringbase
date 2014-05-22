@@ -75,8 +75,6 @@ body {
     padding: 15px;
 
     i { margin-right: 15px; }
-
-    &:hover { background-color: red; }
   }
   .nav > li:first-child a { border-top: 1px solid $sidebar-link-border-color; }
 
@@ -221,7 +219,6 @@ body {
 }
 
 .caret {
-  visibility: visible;
   float: right;
   margin-top: 8px;
 }
@@ -260,5 +257,5 @@ body {
 }
 
 .answer-call {
-  &:hover { cursor: pointer; color: red; }
+  &:hover { cursor: pointer; }
 }
