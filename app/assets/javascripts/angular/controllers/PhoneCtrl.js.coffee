@@ -62,6 +62,8 @@
   $rootScope.$on 'handle_call_start', (evt, call) ->
     console.log("call started!")
     call.answered = false
+    if $scope.unanswered_cities.indexOf(call.caller_city) < 0
+      $scope.unanswered_cities.push(call.caller_city)
     # TODO: flash new call
     $scope.calls.unshift(call) # Add to beginning
     $scope.$apply()
