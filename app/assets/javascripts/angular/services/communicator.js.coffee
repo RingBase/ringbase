@@ -13,6 +13,7 @@
       return
 
     conn = new WebSocket('ws://localhost:9000')
+    $rootScope.brokerError = false
 
     conn.onopen = ->
       conn.send(JSON.stringify({ "agent_id": agent_id, "type": "login" }))
@@ -25,12 +26,7 @@
 
 
     conn.onerror = (err) ->
-      # TODO: hack, not sure how to to best do this the Angular way
-      errContainer = document.querySelector(".connection-error-container")
-      if errContainer?
-        errContainer.style.display = 'block'
-      else
-        console.log("no err container QS?")
+      $rootScope.brokerError = true
 
     service.conn = conn
 
