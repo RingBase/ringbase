@@ -3,7 +3,10 @@
 @RingBase.controller "PhoneCtrl", ($scope, $rootScope, $location, $window, $timeout, Agent) ->
   $scope.current_user = $window.current_user
   $scope.current_organization = $window.current_organization
-  $scope.uniqueCities = []
+
+  $scope.answered_cities = []
+  $scope.unanswered_cities =[]
+
   $scope.calls = []
   $scope.inProgressCalls = [] # this will hold all the calls that are in progress
 
@@ -82,13 +85,15 @@
     unanswered_calls = []
     answered_calls = []
     for call in json.calls
-      if $scope.uniqueCities.indexOf(call.caller_city) < 0
-        $scope.uniqueCities.push(call.caller_city)
-
       if call.state == 'parked'
         unanswered_calls.push(call)
+        if $scope.unanswered_cities.indexOf(call.caller_city) < 0
+          $scope.unanswered_cities.push(call.caller_city)
       else
         answered_calls.push(call)
+        if $scope.answered_cities.indexOf(call.caller_city) < 0
+          $scope.answered_cities.push(call.caller_city)
+
 
     $scope.calls = unanswered_calls.sort (a,b) ->
       # Most recent calls first
