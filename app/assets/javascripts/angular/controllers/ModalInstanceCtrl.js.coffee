@@ -1,4 +1,4 @@
-@RingBase.controller 'ModalInstanceCtrl', ($scope, $rootScope, $modalInstance, $routeParams, Agent) ->
+@RingBase.controller 'ModalInstanceCtrl', ($scope, $rootScope, $modalInstance, $location, $routeParams, Agent) ->
 
   $scope.cancel = -> $modalInstance.dismiss("cancel")
 
@@ -11,8 +11,11 @@
     [agent_id, phone_number] = agent_and_number.split(':') # TODO: hack
     $scope.transferred = true
     call_id = $routeParams.callId
+    console.log "agent_id", agent_id
     $rootScope.communicator.send {
       type: 'bridge_to',
-      agent: { id: agent_id: agent_id, phone_number: phone_number }
+      agent: { id: agent_id, phone_number: phone_number }
       call: { id: call_id }
     }
+    $scope.cancel()
+    $location.path("/")
