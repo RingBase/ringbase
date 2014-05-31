@@ -14,7 +14,7 @@
 
     <%= render 'shared/header' %>
 
-    <div class="alert alert-danger connection-error-container">
+    <div class="alert alert-danger connection-error-container" ng-show="$root.brokerError">
       An error occurred while connecting to Ringbase!
     </div>
 
