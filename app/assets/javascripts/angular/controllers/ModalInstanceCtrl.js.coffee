@@ -18,4 +18,4 @@
       call: { id: call_id }
     }
     $scope.cancel()
-    $location.path("/")
+    document.location = "/"
