@@ -31,6 +31,12 @@
   $scope.selectedCity = "Select City"
   $scope.setSelectedCity = (city) -> $scope.selectedCity = city
 
+  $scope.isSelected = (city) ->
+    console.log $scope.selectedCity
+    $scope.selectedCity == city 
+  $scope.isAllCitiesSelected = ->
+    console.log $scope.selectedCity
+    $scope.selectedCity == "Select City"
 
   $scope.send = (event) -> $rootScope.communicator.send(event)
 

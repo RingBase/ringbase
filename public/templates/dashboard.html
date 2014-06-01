@@ -20,19 +20,34 @@
     <tr class="table-header">
       <div class="col-md-2 btn btn-default">Actions</div>
       <div class="col-md-2 btn btn-default">Started</div>
-      <div class="col-md-2 btn btn-default">State <span class="caret"></span></div>
+      <div class="col-md-2 btn btn-default">Region</div>
       <div class="col-md-2 btn btn-default" id="filter">
         <div id="locationDropdown" class="dropdown-toggle" data-toggle="dropdown">
-            City <span class="caret"></span>
+            Location <span class="caret"></span>
         </div>
 
         <ul class="dropdown-menu" role="menu">
-          <li><a ng-click="selectedCity='Select City'">All Cities</a></li>
-          <li selected ng-repeat="city in unanswered_cities"><a ng-click="setSelectedCity(city)">{{city}}</a></li>
-        </ul>
+            <li>
+              <a ng-click="selectedCity='Select City'">
+                <div ng-show="isAllCitiesSelected()">
+                  <span class="glyphicon glyphicon-ok check">
+                </div>All Cities
+                  </span>
+              </a>
+              
+            </li>
+            <li selected ng-repeat="city in answered_cities">
+              <a ng-click="setSelectedCity(city)">
+                <div ng-show="isSelected(city)">
+                  <span class="glyphicon glyphicon-ok check">
+                  </div>{{city}}
+                </span>
+              </a>
+            </li>
+          </ul>
       </div><!-- #filter -->
 
-      <div class="col-md-4 btn btn-default">Caller Number <span class="caret"></span></div>
+      <div class="col-md-4 btn btn-default">Caller Number</div>
     </tr>
   </table>
 
@@ -73,20 +88,35 @@
       <tr class="table-header">
         <div class="col-md-2 btn btn-default">Actions</div>
         <div class="col-md-2 btn btn-default">Started</div>
-        <div class="col-md-2 btn btn-default">State <span class="caret"></span></div>
+        <div class="col-md-2 btn btn-default">Region</div>
         <div class="col-md-2 btn btn-default" id="filter">
           <div id="locationDropdown"  class="dropdown-toggle" data-toggle="dropdown">
-            City <span class="caret"></span>
+            Location <span class="caret"></span>
           </div>
 
           <ul class="dropdown-menu" role="menu">
-            <li><a ng-click="selectedCity='Select City'">All Cities</a></li>
-            <li selected ng-repeat="city in answered_cities"><a ng-click="setSelectedCity(city)">{{city}}</a></li>
+            <li>
+              <a ng-click="selectedCity='Select City'">
+                <div ng-show="isAllCitiesSelected()">
+                  <span class="glyphicon glyphicon-ok check">
+                </div>All Cities
+                  </span>
+              </a>
+              
+            </li>
+            <li selected ng-repeat="city in answered_cities">
+              <a ng-click="setSelectedCity(city)">
+                <div ng-show="isSelected(city)">
+                  <span class="glyphicon glyphicon-ok check">
+                  </div>{{city}}
+                </span>
+              </a>
+            </li>
           </ul>
         </div><!-- #filter -->
 
 
-        <div class="col-md-4 btn btn-default">Caller Number <span class="caret"></span></div>
+        <div class="col-md-4 btn btn-default">Caller Number</div>
 
       </tr>
     </table>

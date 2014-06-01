@@ -44,6 +44,12 @@ body {
   }
 }
 
+.check{
+  float: left;
+  //top:30px;
+  //left:-60px;
+}
+
 .app-content-container { @include clearfix; }
 
 
