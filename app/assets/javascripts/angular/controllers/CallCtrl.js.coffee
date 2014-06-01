@@ -66,9 +66,7 @@
   $rootScope.$on 'handle_call_transfer_completed', (evt, call) ->
     console.log("call transfer completed!")
     $scope.modalInstance.close()
-    $timeout ->
-      $location.path("/")
-    , 1000
+    $location.path("/")
 
   $rootScope.$on 'handle_notes_updated', (evt, data) ->
     console.log "notes updated, got data: ", data

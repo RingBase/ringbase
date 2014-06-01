@@ -106,7 +106,6 @@
     $scope.$apply()
 
 
-
 @RingBase.filter "locationFilter", ->
  (input, scope) ->
    filterCalls = []
