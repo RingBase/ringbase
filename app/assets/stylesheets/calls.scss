@@ -35,10 +35,12 @@
 
   .call-payout {
     color: lighten($gray-text, 7);
-    float: left;
+    float: right;
     font-size: 0.8em;
     height: auto;
     padding: 2px;
+    position: relative;
+    right: 45px;
     width: 50%;
 
     &:focus {

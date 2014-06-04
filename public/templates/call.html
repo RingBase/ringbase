@@ -14,8 +14,9 @@
     <div class="col-md-3 call-info">
       <span class="call-info-label">Total:</span>
       <span class="call-payout-container">
-        $
+        <span class="new"></span>
         <input type="text" class="call-payout" ng-model="total"/>
+        $
       </span>
     </div>
 
@@ -54,7 +55,7 @@
   <div class="col-md-12 notes-input-container">
 
     <div class="notes-input">
-      <textarea class="form-control" ng-model="note"></textarea>
+      <textarea class="form-control" ng-model="note" ng-change="keydown()"></textarea>
       <button class="btn btn-primary btn-sm btn-send" ng-click="update_notes()">Send</button>
     </div><!-- .notes-input -->
 
